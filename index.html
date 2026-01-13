@@ -3,16 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Protfolio - Gerald Catina</title>
+    <title>Gerald Catina | Portfolio</title>
+    <meta
+      name="description"
+      content="Gerald Catina's portfolio showcasing projects and skills."
+    />
+    <link rel="icon" type="image/x-icon" href="imgs/icon/favicon.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles/styles.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"
     />
     <script>
       tailwind.config = {
@@ -34,57 +43,143 @@
                 800: "#075985",
                 900: "#0c4a6e",
               },
+              dark: {
+                900: "#0a0a0a",
+                800: "#1a1a1a",
+                700: "#2a2a2a",
+                600: "#3a3a3a",
+              },
             },
             animation: {
               float: "float 3s ease-in-out infinite",
+              "fade-in": "fadeIn 0.8s ease-out",
+              "slide-up": "slideUp 0.6s ease-out",
+              "slide-right": "slideRight 0.6s ease-out",
+              "pulse-glow": "pulseGlow 2s ease-in-out infinite",
+              "gradient-shift": "gradientShift 3s ease infinite",
+              blob: "blob 7s infinite",
             },
             keyframes: {
               float: {
                 "0%, 100%": { transform: "translateY(0)" },
                 "50%": { transform: "translateY(-10px)" },
               },
+              fadeIn: {
+                "0%": { opacity: 0 },
+                "100%": { opacity: 1 },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(30px)", opacity: 0 },
+                "100%": { transform: "translateY(0)", opacity: 1 },
+              },
+              slideRight: {
+                "0%": { transform: "translateX(-30px)", opacity: 0 },
+                "100%": { transform: "translateX(0)", opacity: 1 },
+              },
+              pulseGlow: {
+                "0%, 100%": { boxShadow: "0 0 20px rgba(14, 165, 233, 0.3)" },
+                "50%": { boxShadow: "0 0 40px rgba(14, 165, 233, 0.5)" },
+              },
+              gradientShift: {
+                "0%, 100%": { backgroundPosition: "0% 50%" },
+                "50%": { backgroundPosition: "100% 50%" },
+              },
+              blob: {
+                "0%": { transform: "translate(0px, 0px) scale(1)" },
+                "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                "100%": { transform: "translate(0px, 0px) scale(1)" },
+              },
+            },
+            backgroundImage: {
+              "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+              "gradient-grid":
+                "linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)",
             },
           },
         },
       };
     </script>
   </head>
-  <body class="font-sans bg-gray-50 text-gray-800">
-    <!-- Navigation -->
+  <body class="font-sans overflow-x-hidden">
+    <!-- Loading Bar -->
+    <div class="loading-bar"></div>
+
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      <div
+        class="absolute top-1/4 left-10 w-96 h-96 bg-primary-500/10 rounded-full animate-blob filter blur-3xl"
+      ></div>
+      <div
+        class="absolute bottom-1/4 right-10 w-80 h-80 bg-purple-500/10 rounded-full animate-blob filter blur-3xl animation-delay-2000"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/3 w-64 h-64 bg-blue-500/10 rounded-full animate-blob filter blur-3xl animation-delay-4000"
+      ></div>
+      <div class="grid-pattern absolute inset-0 opacity-20"></div>
+    </div>
     <nav
-      class="bg-white shadow-sm sticky top-0 z-50 backdrop-blur-sm bg-opacity-80"
+      class="fixed top-0 w-full z-50 py-4 px-6 transition-all duration-300"
+      id="navbar"
     >
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-code text-primary-400 text-2xl"></i>
+            <span class="text-xl font-bold gradient-text">Gerald Catina</span>
+          </div>
+
           <div class="hidden md:flex items-center space-x-8">
-            <a href="#home" class="nav-link text-primary-600 font-black text-lg"
-              >Home</a
+            <a
+              href="#home"
+              class="nav-link text-primary-400 font-medium text-lg relative group"
             >
+              <span class="relative z-10">Home</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
             <a
               href="#about"
-              class="nav-link text-gray-500 hover:text-primary-600 transition font-black text-lg"
-              >About</a
+              class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
             >
+              <span class="relative z-10">About</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
             <a
               href="#projects"
-              class="nav-link text-gray-500 hover:text-primary-600 transition font-black text-lg"
-              >Projects</a
+              class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
             >
+              <span class="relative z-10">Projects</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
             <a
               href="#certifications"
-              class="nav-link text-gray-500 hover:text-primary-600 transition font-black text-lg"
-              >Certificates</a
+              class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
             >
+              <span class="relative z-10">Certificates</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
             <a
               href="#contact"
-              class="nav-link text-gray-500 hover:text-primary-600 transition font-black text-lg"
-              >Contact</a
+              class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
             >
+              <span class="relative z-10">Contact</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
           </div>
+
           <div class="md:hidden flex items-center">
             <button
               id="mobile-menu-button"
-              class="text-gray-500 hover:text-primary-600"
+              class="text-gray-300 hover:text-primary-400 p-2 rounded-lg glass-card"
             >
               <svg
                 class="h-6 w-6"
@@ -104,31 +199,34 @@
         </div>
       </div>
       <!-- Mobile menu -->
-      <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden absolute top-full left-0 right-0 mt-2 mx-4 rounded-xl glass-card backdrop-blur-lg border border-white/10 shadow-2xl animate-slide-up"
+      >
+        <div class="px-4 pt-4 pb-6 space-y-3">
           <a
             href="#home"
-            class="block px-3 py-2 rounded-md text-base font-black text-primary-600"
+            class="block px-4 py-3 rounded-lg text-base font-medium text-primary-400 bg-primary-500/10 hover:bg-primary-500/20 transition"
             >Home</a
           >
           <a
             href="#about"
-            class="block px-3 py-2 rounded-md text-base font-black text-gray-500 hover:text-primary-600"
+            class="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
             >About</a
           >
           <a
             href="#projects"
-            class="block px-3 py-2 rounded-md text-base font-black text-gray-500 hover:text-primary-600"
+            class="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
             >Projects</a
           >
           <a
             href="#contact"
-            class="block px-3 py-2 rounded-md text-base font-black text-gray-500 hover:text-primary-600"
+            class="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
             >Contact</a
           >
           <a
             href="#certifications"
-            class="block px-3 py-2 rounded-md text-base font-black text-gray-500 hover:text-primary-600"
+            class="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
             >Certifications</a
           >
         </div>
@@ -136,49 +234,58 @@
     </nav>
 
     <!-- Hero Section -->
-    <section
-      id="home"
-      class="relative pt-32 pb-24 bg-cover bg-center"
-      style="background-image: url('imgs/awsssa.jpg')"
-    >
-      <!-- Overlay -->
-      <div class="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
-
-      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <section id="home" class="min-h-screen relative pt-20 flex items-center">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <!-- Left Content -->
-          <div>
-            <h1
-              class="text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 leading-tight"
+          <div class="animate-slide-up">
+            <div
+              class="inline-flex items-center px-4 py-2 rounded-full glass-card mb-6 animate-fade-in"
             >
-              Hi! I'm
-              <span
-                class="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent"
-                ><br />
-                <span
-                  id="typing-text"
-                  class="inline-block min-h-[1em] w-auto"
-                ></span>
-              </span>
+              <div
+                class="w-2 h-2 rounded-full bg-primary-500 mr-2 animate-pulse"
+              ></div>
+              <span class="text-sm font-medium"
+                >Available for opportunities</span
+              >
+            </div>
+
+            <h1 class="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight">
+              <span class="block text-gray-100">Hi, I'm</span>
+              <span id="typing-text" class="gradient-text text-outline"></span>
             </h1>
-            <h2 class="text-2xl lg:text-3xl text-gray-700 font-medium mb-6">
-              A Passionate <span class="text-primary-600">Developer</span>
+
+            <h2
+              class="text-2xl lg:text-3xl text-gray-300 font-medium mb-8 animate-slide-up"
+              style="animation-delay: 0.2s"
+            >
+              A Passionate
+              <span class="gradient-text font-bold">Web Developer</span>
             </h2>
-            <p class="text-lg text-gray-600 max-w-xl leading-relaxed mb-8">
+
+            <p
+              class="text-lg text-gray-400 max-w-xl leading-relaxed mb-10 animate-slide-up"
+              style="animation-delay: 0.4s"
+            >
               I build modern, responsive web applications with a strong focus on
               clean UI, performance, and solving real-world problems. Available
               for internships, junior roles, or freelance work.
             </p>
-            <div class="flex flex-wrap gap-4">
-              <!-- <a
+
+            <div
+              class="flex flex-wrap gap-4 animate-slide-up"
+              style="animation-delay: 0.6s"
+            >
+              <a
                 href="#contact"
-                class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-full font-medium shadow-md transition"
+                class="bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover-lift transition-all duration-300 animate-pulse-glow"
               >
-                Hire Me
-              </a> -->
+                Get In Touch
+              </a>
               <button
+                onclick="downloadResume()"
                 id="download-resume"
-                class="flex items-center gap-2 border border-primary-600 text-primary-700 hover:bg-primary-100 px-6 py-3 rounded-full font-medium transition"
+                class="flex items-center gap-3 border border-primary-500/30 text-primary-400 hover:bg-primary-500/10 px-8 py-4 rounded-xl font-semibold transition hover-lift glass-card"
               >
                 <svg
                   class="w-5 h-5"
@@ -196,142 +303,269 @@
                 <span>Download Resume</span>
               </button>
             </div>
+
+            <div class="mt-12 animate-fade-in" style="animation-delay: 0.8s">
+              <p class="text-gray-400 mb-4">Tech Stack</p>
+              <div class="flex flex-wrap gap-3">
+                <div
+                  class="px-4 py-2 rounded-lg glass-card flex items-center space-x-2"
+                >
+                  <i class="fab fa-html5 text-orange-500"></i>
+                  <span>HTML5</span>
+                </div>
+                <div
+                  class="px-4 py-2 rounded-lg glass-card flex items-center space-x-2"
+                >
+                  <i class="fab fa-css3-alt text-blue-500"></i>
+                  <span>CSS3</span>
+                </div>
+                <div
+                  class="px-4 py-2 rounded-lg glass-card flex items-center space-x-2"
+                >
+                  <i class="fab fa-php text-purple-500"></i>
+                  <span>PHP</span>
+                </div>
+                <div
+                  class="px-4 py-2 rounded-lg glass-card flex items-center space-x-2"
+                >
+                  <i class="fab fa-python text-blue-400"></i>
+                  <span>Python</span>
+                </div>
+                <div
+                  class="px-4 py-2 rounded-lg glass-card flex items-center space-x-2"
+                >
+                  <i class="fas fa-fire text-orange-600"></i>
+                  <span>PyTorch</span>
+                </div>
+                <div
+                  class="px-4 py-2 rounded-lg glass-card flex items-center space-x-2"
+                >
+                  <i class="fas fa-database text-blue-600"></i>
+                  <span>MySQL</span>
+                </div>
+                <div
+                  class="px-4 py-2 rounded-lg glass-card flex items-center space-x-2"
+                >
+                  <i class="fas fa-republican text-blue-500"></i>
+                  <span>PostgreSQL</span>
+                </div>
+                <div
+                  class="px-4 py-2 rounded-lg glass-card flex items-center space-x-2"
+                >
+                  <i class="fas fa-globe text-green-500"></i>
+                  <span>GIS</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- Right Profile Card -->
-          <!-- <div class="flex justify-center md:justify-end">
-            <img
-              src="imgs/unnamed.jpg"
-              alt="user"
-              class="relative"
-              style="border-radius: 50%; width: 500px; height: 500px"
-              srcset=""
-            />
-          </div> -->
+          <!-- Right Content - 3D Card Effect -->
+          <div class="relative flex justify-center lg:justify-end">
+            <div class="relative w-full max-w-md perspective-1000">
+              <div
+                class="relative rounded-3xl overflow-hidden hover-lift transition-all duration-700 transform-style-3d"
+                id="hero-card"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-purple-500/20"
+                ></div>
+                <div class="relative p-8 glass-card border border-white/10">
+                  <div class="text-center mb-8">
+                    <div
+                      class="w-32 h-42 rounded-full mx-auto mb-6 flex items-center justify-center"
+                    >
+                      <img
+                        src="imgs/meme.png"
+                        alt="Gerald Catina"
+                        class="rounded-full h-32 w-42 object-cover"
+                      />
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">Gerald Catina</h3>
+                    <p class="text-gray-400 mt-2">Web Developer</p>
+                  </div>
+
+                  <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                      <div
+                        class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center"
+                      >
+                        <i class="fas fa-map-marker-alt text-primary-400"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm text-gray-400">Location</p>
+                        <p class="font-medium">Southern Leyte, PH</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                      <div
+                        class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center"
+                      >
+                        <i class="fas fa-envelope text-primary-400"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm text-gray-400">Email</p>
+                        <p class="font-medium">geraldcatina5@gmail.com</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                      <div
+                        class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center"
+                      >
+                        <i class="fas fa-graduation-cap text-primary-400"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm text-gray-400">Status</p>
+                        <p class="font-medium">Student Developer</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating elements around the card -->
+              <div
+                class="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-primary-500/20 blur-xl animate-float"
+              ></div>
+              <div
+                class="absolute -bottom-6 -right-6 w-20 h-20 rounded-full bg-purple-500/20 blur-xl animate-float"
+                style="animation-delay: 1s"
+              ></div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <a
+          href="#about"
+          class="flex flex-col items-center text-gray-400 hover:text-primary-400 transition"
+        >
+          <span class="text-sm mb-2">Scroll Down</span>
+          <i class="fas fa-chevron-down"></i>
+        </a>
       </div>
     </section>
 
     <!-- About Me section -->
-    <section
-      id="about"
-      class="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden"
-    >
-      <!-- Background decorative elements -->
-      <div
-        class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
-      >
-        <div
-          class="absolute -top-24 -left-24 w-96 h-96 bg-primary-100/30 rounded-full blur-3xl animate-pulse"
-        ></div>
-        <div
-          class="absolute -bottom-32 -right-32 w-80 h-80 bg-primary-200/20 rounded-full blur-3xl animate-pulse"
-          style="animation-delay: 2s"
-        ></div>
-        <div
-          class="absolute top-1/3 right-1/4 w-32 h-32 bg-primary-300/20 rounded-full blur-2xl animate-float"
-        ></div>
-      </div>
+    <section id="about" class="relative">
+      <div class="section-divider my-16"></div>
 
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section Header with enhanced styling -->
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <!-- Section Header -->
         <div class="text-center mb-20">
           <span
-            class="inline-flex items-center py-2 px-4 mb-6 text-sm font-semibold text-primary-700 bg-gradient-to-r from-primary-50 to-primary-100 rounded-full border border-primary-200 shadow-sm"
+            class="inline-flex items-center py-2 px-4 mb-6 text-sm font-semibold text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/30 animate-fade-in"
           >
-            <svg
-              class="w-4 h-4 mr-2 text-primary-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-              ></path>
-            </svg>
+            <i class="fas fa-user mr-2"></i>
             ABOUT ME
           </span>
+
           <h2
-            class="text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight"
+            class="text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight animate-slide-up"
           >
-            Crafting
-            <span
-              class="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent"
-              >Digital Experiences</span
-            >
+            Crafting <span class="gradient-text">Digital Experiences</span>
           </h2>
-          <div class="flex justify-center items-center space-x-4 mb-4">
+
+          <div class="flex justify-center items-center space-x-4 mb-6">
             <div
               class="h-1 w-16 bg-gradient-to-r from-transparent to-primary-500 rounded-full"
             ></div>
             <div
-              class="h-2 w-8 bg-primary-600 rounded-full animate-pulse"
+              class="h-2 w-8 bg-primary-500 rounded-full animate-pulse"
             ></div>
             <div
               class="h-1 w-16 bg-gradient-to-l from-transparent to-primary-500 rounded-full"
             ></div>
           </div>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+
+          <p
+            class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed animate-fade-in"
+            style="animation-delay: 0.2s"
+          >
             Passionate about creating meaningful digital solutions that make a
             difference
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <!-- Left Column - Enhanced About Text -->
+        <div
+          class="flex flex-col lg:flex-row lg:space-x-12 space-y-12 lg:space-y-0"
+        >
+          <!-- Left Column - About Text -->
           <div class="space-y-8">
             <!-- Main content card -->
             <div
-              class="bg-white/70 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-500 group"
+              class="glass-card p-8 rounded-3xl border border-white/10 hover-lift animate-slide-right"
             >
               <div class="space-y-6">
                 <div class="flex items-start space-x-4">
-                  <div class="flex-shrink-0">
-                    <div
-                      class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-lg"
-                    >
-                      <svg
-                        class="w-6 h-6 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
+                  <div class="flex-shrink-0"></div>
                   <div>
-                    <h3
-                      class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition-colors"
-                    >
+                    <h3 class="text-2xl font-bold text-white mb-3">
                       My Journey
                     </h3>
-                    <p class="text-lg text-gray-700 leading-relaxed">
+                    <p class="text-lg text-gray-300 leading-relaxed">
                       I'm a
                       <span
-                        class="font-semibold text-primary-600 bg-primary-50 px-2 py-1 rounded-lg"
-                        >student developer</span
+                        class="font-semibold text-primary-400 bg-primary-500/10 px-3 py-1 rounded-lg"
                       >
-                      with a passion for creating beautiful, functional digital
-                      experiences. My coding journey began in college where I
-                      quickly discovered my love for problem-solving through
-                      programming.
+                        student developer
+                      </span>
+                      with a strong passion for creating beautiful, functional,
+                      and user-centered digital experiences. My journey into
+                      programming began during my college years, where I quickly
+                      discovered my love for problem-solving and logical
+                      thinking through code. Since then, I have continuously
+                      worked on improving my skills by building web applications
+                      and exploring modern web technologies to create clean,
+                      responsive, and seamless user experiences.
+                    </p>
+                    <br />
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                      Beyond classroom learning, I actively participate in
+                      <span
+                        class="font-semibold text-primary-400 bg-primary-500/10 px-3 py-1 rounded-lg"
+                        >coding challenges, and programming competitions</span
+                      >
+                      to sharpen my technical skills and stay updated with
+                      current industry trends. I am proud to have won
+                      <span
+                        class="font-semibold text-primary-400 bg-primary-500/10 px-3 py-1 rounded-lg"
+                        >1st Place in the Programming Skills Competition</span
+                      >
+                      during the CCSIT Day event at our college, as well as
+                      achieving
+                      <span
+                        class="font-semibold text-primary-400 bg-primary-500/10 px-3 py-1 rounded-lg"
+                        >2nd Place in the Easter Visayas Coding Olympics (EVCO)
+                        – Java Category</span
+                      >. I have also represented my school as a participant in
+                      the
+                      <span
+                        class="font-semibold text-primary-400 bg-primary-500/10 px-3 py-1 rounded-lg"
+                        >National CodeChum Competition</span
+                      >, which further strengthened my problem-solving
+                      abilities, teamwork, and resilience under pressure.
+                    </p>
+                    <br />
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                      These experiences have helped me develop a strong
+                      foundation in programming, collaboration, and continuous
+                      learning. I am highly motivated to grow as a developer,
+                      take on real-world challenges, and contribute my skills to
+                      meaningful projects while continuously improving both my
+                      technical and creative abilities.
                     </p>
                   </div>
                 </div>
 
                 <div
-                  class="border-l-4 border-primary-200 pl-6 bg-primary-50/50 py-4 rounded-r-2xl"
+                  class="border-l-4 border-primary-500/50 pl-6 bg-primary-500/5 py-5 rounded-r-2xl"
                 >
-                  <p class="text-lg text-gray-700 leading-relaxed italic">
+                  <p class="text-lg text-gray-300 leading-relaxed italic">
                     "I specialize in modern web technologies and enjoy the
                     entire development process from concept to deployment.
                     Currently focused on building responsive, accessible, and
@@ -341,663 +575,403 @@
               </div>
             </div>
 
-            <!-- Stats/Achievements Card -->
             <div
-              class="bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-white/50"
+              class="glass-card p-6 rounded-2xl border border-white/10 animate-slide-right"
+              style="animation-delay: 0.2s"
             >
-              <h4
-                class="text-lg font-bold text-gray-900 mb-6 flex items-center"
-              >
+              <h4 class="text-lg font-bold text-white mb-6 flex items-center">
                 <div
-                  class="w-2 h-2 bg-primary-600 rounded-full mr-3 animate-pulse"
+                  class="w-2 h-2 bg-primary-500 rounded-full mr-3 animate-pulse"
                 ></div>
                 Achievements & Focus
               </h4>
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div
-                  class="text-center p-4 bg-white/60 rounded-xl hover:bg-white/80 transition-all duration-300 hover:scale-105 group"
+                  class="text-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105 group"
                 >
                   <div
-                    class="text-2xl font-bold text-primary-600 mb-1 group-hover:scale-110 transition-transform"
+                    class="text-2xl font-bold text-primary-400 mb-1 group-hover:scale-110 transition-transform"
                   >
                     5+
                   </div>
-                  <div class="text-sm font-medium text-gray-700">
+                  <div class="text-sm font-medium text-gray-300">
                     Projects Completed
                   </div>
                 </div>
                 <div
-                  class="text-center p-4 bg-white/60 rounded-xl hover:bg-white/80 transition-all duration-300 hover:scale-105 group"
+                  class="text-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105 group"
                 >
                   <div
-                    class="text-2xl font-bold text-primary-600 mb-1 group-hover:scale-110 transition-transform"
+                    class="text-2xl font-bold text-primary-400 mb-1 group-hover:scale-110 transition-transform"
                   >
                     ∞
                   </div>
-                  <div class="text-sm font-medium text-gray-700">
+                  <div class="text-sm font-medium text-gray-300">
                     Learning Mindset
                   </div>
                 </div>
                 <div
-                  class="text-center p-4 bg-white/60 rounded-xl hover:bg-white/80 transition-all duration-300 hover:scale-105 group"
+                  class="text-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105 group"
                 >
                   <div
-                    class="text-2xl font-bold text-primary-600 mb-1 group-hover:scale-110 transition-transform"
+                    class="text-2xl font-bold text-primary-400 mb-1 group-hover:scale-110 transition-transform"
                   >
                     100%
                   </div>
-                  <div class="text-sm font-medium text-gray-700">
+                  <div class="text-sm font-medium text-gray-300">
                     Dedication
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- Right Column - Enhanced Skills -->
-          <div
-            class="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/50 hover:shadow-3xl transition-all duration-500"
-          >
-            <!-- Header -->
-            <div class="text-center mb-8">
-              <h3
-                class="text-3xl font-bold text-gray-900 mb-4 relative inline-block"
-              >
-                <span class="relative z-10">Technical Skills</span>
-                <div
-                  class="absolute -bottom-2 left-0 right-0 h-3 bg-gradient-to-r from-primary-200/60 to-primary-300/60 rounded-full -rotate-1"
-                ></div>
-              </h3>
-              <p class="text-gray-600">Technologies I work with</p>
-            </div>
-
-            <div class="space-y-8">
-              <!-- HTML Skill -->
-              <div class="group">
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex items-center">
-                    <div
-                      class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center mr-3 shadow-md group-hover:scale-110 transition-transform"
-                    >
-                      <svg
-                        class="w-5 h-5 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"
-                        />
-                      </svg>
-                    </div>
-                    <span class="font-semibold text-gray-900">HTML5</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <span class="text-primary-600 font-bold text-sm">90%</span>
-                    <div
-                      class="w-2 h-2 bg-primary-600 rounded-full animate-pulse"
-                    ></div>
-                  </div>
-                </div>
-                <div
-                  class="h-3 w-full bg-gray-200/80 rounded-full overflow-hidden shadow-inner"
-                >
-                  <div
-                    class="skill-bar h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full shadow-sm"
-                    data-width="90%"
-                  ></div>
-                </div>
-              </div>
-
-              <!-- CSS Skill -->
-              <div class="group">
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex items-center">
-                    <div
-                      class="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center mr-3 shadow-md group-hover:scale-110 transition-transform"
-                    >
-                      <svg
-                        class="w-5 h-5 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"
-                        />
-                      </svg>
-                    </div>
-                    <span class="font-semibold text-gray-900">CSS3</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <span class="text-primary-600 font-bold text-sm">85%</span>
-                    <div
-                      class="w-2 h-2 bg-primary-600 rounded-full animate-pulse"
-                      style="animation-delay: 0.2s"
-                    ></div>
-                  </div>
-                </div>
-                <div
-                  class="h-3 w-full bg-gray-200/80 rounded-full overflow-hidden shadow-inner"
-                >
-                  <div
-                    class="skill-bar h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full shadow-sm"
-                    data-width="85%"
-                  ></div>
-                </div>
-              </div>
-
-              <!-- Tailwind CSS Skill -->
-              <div class="group">
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex items-center">
-                    <div
-                      class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-lg flex items-center justify-center mr-3 shadow-md group-hover:scale-110 transition-transform"
-                    >
-                      <svg
-                        class="w-5 h-5 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C7.666,17.818,9.027,19.2,12.001,19.2c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"
-                        />
-                      </svg>
-                    </div>
-                    <span class="font-semibold text-gray-900"
-                      >Tailwind CSS</span
-                    >
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <span class="text-primary-600 font-bold text-sm">50%</span>
-                    <div
-                      class="w-2 h-2 bg-primary-600 rounded-full animate-pulse"
-                      style="animation-delay: 0.4s"
-                    ></div>
-                  </div>
-                </div>
-                <div
-                  class="h-3 w-full bg-gray-200/80 rounded-full overflow-hidden shadow-inner"
-                >
-                  <div
-                    class="skill-bar h-full bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full shadow-sm"
-                    data-width="50%"
-                  ></div>
-                </div>
-              </div>
-
-              <!-- Flask Skill -->
-              <div class="group">
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex items-center">
-                    <div
-                      class="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg flex items-center justify-center mr-3 shadow-md group-hover:scale-110 transition-transform"
-                    >
-                      <svg
-                        class="w-5 h-5 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm-.615 19.467c-4.183 0-7.573-3.39-7.573-7.573s3.39-7.573 7.573-7.573S19.04 7.711 19.04 11.894s-3.39 7.573-7.655 7.573z"
-                        />
-                      </svg>
-                    </div>
-                    <span class="font-semibold text-gray-900">Flask</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <span class="text-primary-600 font-bold text-sm">60%</span>
-                    <div
-                      class="w-2 h-2 bg-primary-600 rounded-full animate-pulse"
-                      style="animation-delay: 0.6s"
-                    ></div>
-                  </div>
-                </div>
-                <div
-                  class="h-3 w-full bg-gray-200/80 rounded-full overflow-hidden shadow-inner"
-                >
-                  <div
-                    class="skill-bar h-full bg-gradient-to-r from-gray-700 to-gray-900 rounded-full shadow-sm"
-                    data-width="60%"
-                  ></div>
-                </div>
-              </div>
-
-              <!-- PHP Skill -->
-              <div class="group">
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex items-center">
-                    <div
-                      class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg flex items-center justify-center mr-3 shadow-md group-hover:scale-110 transition-transform"
-                    >
-                      <svg
-                        class="w-5 h-5 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .982-.122 1.292-.385.293-.278.426-.686.426-1.207 0-.418-.152-.729-.426-.914-.275-.198-.684-.142-1.671-.142zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12s-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.426-.947.525-.361.099-.786.148-1.278.148h-1.249l-.272 1.397h-.99L4.91 10.05h2.028c.805 0 1.41.123 1.817.364.408.24.612.594.612 1.058 0 .353-.096.673-.287.958zm5.15-.101c.282-.54.482-.864.602-1.073L11.652 10.05h1.803l-.013.019c-.362.415-.672.857-.931 1.325l-.618 1.108 1.197 2.716h-1.796l-.607-1.468L9.793 14.209h-.958l1.133-5.635h.958l-.636 3.164zm3.905-.714c.282-.54.482-.864.602-1.073L16.557 10.05h1.803l-.013.019c-.362.415-.672.857-.931 1.325l-.618 1.108 1.197 2.716h-1.796l-.607-1.468L14.698 14.209h-.958l1.133-5.635h.958l-.636 3.164z"
-                        />
-                      </svg>
-                    </div>
-                    <span class="font-semibold text-gray-900">PHP</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <span class="text-primary-600 font-bold text-sm">90%</span>
-                    <div
-                      class="w-2 h-2 bg-primary-600 rounded-full animate-pulse"
-                      style="animation-delay: 0.8s"
-                    ></div>
-                  </div>
-                </div>
-                <div
-                  class="h-3 w-full bg-gray-200/80 rounded-full overflow-hidden shadow-inner"
-                >
-                  <div
-                    class="skill-bar h-full bg-gradient-to-r from-purple-500 to-purple-700 rounded-full shadow-sm"
-                    data-width="90%"
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bottom decoration -->
-            <div class="mt-8 text-center">
-              <div class="inline-flex items-center space-x-2 text-gray-500">
-                <div
-                  class="w-2 h-2 bg-primary-300 rounded-full animate-bounce"
-                ></div>
-                <span class="text-sm font-medium">Always learning more</span>
-                <div
-                  class="w-2 h-2 bg-primary-300 rounded-full animate-bounce"
-                  style="animation-delay: 0.2s"
-                ></div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
+
     <!-- Projects Section -->
-    <section
-      id="projects"
-      class="py-20 bg-gradient-to-br from-gray-50 to-gray-100"
-    >
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+    <section id="projects" class="relative">
+      <div class="section-divider my-16"></div>
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-20">
           <span
-            class="inline-block py-1 px-3 mb-4 text-xs font-semibold text-primary-600 bg-primary-100 rounded-full"
+            class="inline-flex items-center py-2 px-4 mb-6 text-sm font-semibold text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/30 animate-fade-in"
           >
+            <i class="fas fa-code mr-2"></i>
             MY WORK
           </span>
-          <h2 class="text-4xl font-bold text-gray-900">
-            Featured <span class="text-primary-600">Projects</span>
+
+          <h2
+            class="text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight animate-slide-up"
+          >
+            Featured <span class="gradient-text">Projects</span>
           </h2>
-          <div class="mx-auto mt-4 h-1 w-20 bg-primary-600 rounded-full"></div>
+
+          <p
+            class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed animate-fade-in"
+            style="animation-delay: 0.2s"
+          >
+            A collection of my recent work and creative endeavors
+          </p>
         </div>
 
         <!-- Projects Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project Card 1 - Enhanced Image Focus -->
+          <!-- Project Card 1 -->
           <div
-            class="group bg-white/95 backdrop-blur-sm rounded-3xl shadow-lg overflow-hidden border border-gray-100/50 transition-all duration-700 hover:-translate-y-6 hover:shadow-2xl hover:shadow-primary-500/20 hover:border-primary-200 relative"
+            class="glass-card rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
           >
-            <!-- Enhanced Image Container with More Emphasis -->
             <div class="relative h-64 overflow-hidden">
-              <!-- Image with enhanced styling -->
               <img
-                src="imgs/projects/DeepCoral/samp.png"
-                alt="Automated Coral Cover Percentage Estimation Project"
-                class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                src="imgs/projects/DeepCoral/samp.jpg"
+                alt="Coral Cover Analysis Project"
+                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
               />
 
-              <!-- Multiple overlay layers for depth -->
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              ></div>
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-primary-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100"
-              ></div>
-
-              <!-- Floating tech badges that appear on hover -->
-              <div
-                class="absolute top-4 left-4 right-4 transform -translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-600 delay-200"
-              >
+              <!-- Tech tags -->
+              <!-- <div class="absolute bottom-4 left-4 right-4">
                 <div class="flex flex-wrap gap-2">
                   <span
-                    class="px-3 py-1.5 text-xs font-bold text-white bg-gradient-to-r from-blue-500/90 to-blue-600/90 backdrop-blur-md rounded-full border border-white/30 shadow-lg"
+                    class="px-3 py-1 text-xs font-medium text-primary-400 bg-primary-500/20 rounded-full border border-primary-500/30 backdrop-blur-sm"
                   >
-                    React
+                    AI/ML
                   </span>
                   <span
-                    class="px-3 py-1.5 text-xs font-bold text-white bg-gradient-to-r from-gray-700/90 to-gray-800/90 backdrop-blur-md rounded-full border border-white/30 shadow-lg"
+                    class="px-3 py-1 text-xs font-medium text-blue-400 bg-blue-500/20 rounded-full border border-blue-500/30 backdrop-blur-sm"
                   >
                     Flask
                   </span>
                   <span
-                    class="px-3 py-1.5 text-xs font-bold text-white bg-gradient-to-r from-green-500/90 to-green-600/90 backdrop-blur-md rounded-full border border-white/30 shadow-lg"
+                    class="px-3 py-1 text-xs font-medium text-green-400 bg-green-500/20 rounded-full border border-green-500/30 backdrop-blur-sm"
                   >
-                    AI/ML
+                    Python
                   </span>
                 </div>
-              </div>
-
-              <!-- Project category badge -->
-              <div
-                class="absolute bottom-4 right-4 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-600 delay-300"
-              >
-                <span
-                  class="px-4 py-2 text-sm font-bold text-white bg-gradient-to-r from-primary-500/90 to-primary-600/90 backdrop-blur-md rounded-full border border-white/40 shadow-lg"
-                >
-                  💡 Innovation
-                </span>
-              </div>
-
-              <!-- Animated corner accent -->
-              <div
-                class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-primary-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-400"
-              ></div>
+              </div> -->
             </div>
 
-            <!-- Enhanced Content Section -->
-            <div
-              class="p-6 relative z-10 bg-gradient-to-b from-white to-gray-50/50"
-            >
-              <!-- Project title with enhanced typography -->
-              <div class="mb-6">
-                <h3
-                  class="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-primary-700 transition-colors duration-300 leading-tight"
-                >
-                  Automated Coral Cover Percentage Estimation
-                </h3>
-                <p
-                  class="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4"
-                >
-                  Advanced AI-powered solution using YOLO and U-Net models to
-                  automatically analyze underwater images and calculate coral
-                  coverage percentages for marine conservation efforts.
-                </p>
-
-                <!-- Key features highlights -->
-                <div
-                  class="flex flex-wrap gap-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200"
-                >
-                  <span
-                    class="px-2 py-1 text-xs font-medium text-primary-700 bg-primary-50 rounded-md border border-primary-100"
-                  >
-                    🎯 AI Detection
-                  </span>
-                  <span
-                    class="px-2 py-1 text-xs font-medium text-emerald-700 bg-emerald-50 rounded-md border border-emerald-100"
-                  >
-                    🌊 Marine Biology
-                  </span>
-                  <span
-                    class="px-2 py-1 text-xs font-medium text-blue-700 bg-blue-50 rounded-md border border-blue-100"
-                  >
-                    📊 Data Analysis
-                  </span>
-                </div>
-              </div>
-
-              <!-- Enhanced Action Buttons -->
-              <div class="flex gap-3 pt-4 border-t border-gray-100">
-                <a
-                  href="https://github.com/dlarG"
-                  target="_blank"
-                  class="flex-1 group/btn relative overflow-hidden bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30 transform hover:-translate-y-1"
-                >
-                  <span
-                    class="relative z-10 flex items-center justify-center gap-2"
-                  >
-                    <i class="fab fa-github text-base"></i>
-                    View Code
-                  </span>
-                  <!-- Button shine effect -->
-                  <div
-                    class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"
-                  ></div>
-                </a>
-                <a
-                  href="#"
-                  class="flex-1 relative bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 text-gray-500 text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300 cursor-not-allowed border border-gray-200"
-                >
-                  <span class="flex items-center justify-center gap-2">
-                    <i class="fas fa-external-link-alt text-sm opacity-50"></i>
-                    Live Demo
-                  </span>
-                  <div class="absolute inset-0 bg-gray-300/20 rounded-xl"></div>
-                </a>
-              </div>
-            </div>
-
-            <!-- Enhanced Decorative Elements -->
-            <div
-              class="absolute top-6 right-6 w-16 h-16 bg-gradient-to-br from-primary-400/30 to-primary-600/30 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300 blur-sm"
-            ></div>
-            <div
-              class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-primary-500 via-primary-600 to-primary-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center"
-            ></div>
-
-            <!-- Pulse effect on hover -->
-            <div
-              class="absolute inset-0 rounded-3xl border-2 border-primary-400/0 group-hover:border-primary-400/30 transition-colors duration-500"
-            ></div>
-          </div>
-
-          <!-- Project Card 2 - Next Project (Enhanced) -->
-          <div
-            class="group bg-gradient-to-br from-white/95 to-gray-50/80 backdrop-blur-sm rounded-3xl shadow-lg overflow-hidden border border-gray-100/50 transition-all duration-700 hover:-translate-y-4 hover:shadow-xl"
-          >
-            <!-- Enhanced placeholder image area -->
-            <div
-              class="relative h-64 bg-gradient-to-br from-gray-100 via-gray-50 to-white flex items-center justify-center overflow-hidden"
-            >
-              <!-- Animated background pattern -->
-              <div class="absolute inset-0 opacity-30">
-                <div
-                  class="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-primary-200/40 to-primary-300/40 rounded-full blur-2xl animate-pulse"
-                ></div>
-                <div
-                  class="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-primary-100/40 to-primary-200/40 rounded-full blur-3xl animate-pulse"
-                  style="animation-delay: 1s"
-                ></div>
-              </div>
-
-              <!-- Enhanced icon -->
-              <div class="relative z-10 text-center">
-                <div
-                  class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500"
-                >
-                  <span class="text-3xl">✨</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-700 mb-2">
-                  Coming Soon
-                </h3>
-                <p class="text-sm text-gray-500 px-4">
-                  Something amazing is brewing...
-                </p>
-              </div>
-
-              <!-- Progress indicator -->
-              <div class="absolute bottom-4 left-4 right-4">
-                <div class="flex items-center gap-2 text-xs text-gray-500">
-                  <div
-                    class="flex-1 h-1 bg-gray-200 rounded-full overflow-hidden"
-                  >
-                    <div
-                      class="h-full bg-gradient-to-r from-primary-400 to-primary-500 rounded-full animate-pulse"
-                      style="width: 60%"
-                    ></div>
-                  </div>
-                  <span class="font-medium">60%</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Content area -->
             <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">
-                Next Innovation
+              <h3 class="text-xl font-bold text-white mb-3">
+                Automated Coral Cover Percentage Estimation
               </h3>
-              <p class="text-gray-600 mb-6 text-sm leading-relaxed">
-                Currently developing an exciting new project that will showcase
-                cutting-edge web technologies and innovative solutions.
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                Advanced AI-powered solution using YOLO and U-Net models to
+                automatically analyze underwater images and calculate coral
+                coverage percentages for marine conservation efforts.
               </p>
 
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span
-                  class="px-3 py-1 text-xs font-medium text-primary-600 bg-primary-50 rounded-full border border-primary-100"
+              <div class="bottom-4 left-4 right-4 flex gap-3">
+                <a
+                  href="https://github.com/dlarG/deepcoralv1"
+                  target="_blank"
+                  class="flex-1 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300"
                 >
-                  🚀 In Development
-                </span>
-                <span
-                  class="px-3 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-full"
+                  <i class="fab fa-github mr-2"></i>
+                  View Code
+                </a>
+                <a
+                  href="https://deepcoral.site"
+                  target="_blank"
+                  class="flex-1 bg-white/5 hover:bg-white/10 text-gray-300 text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300 border border-white/10"
                 >
-                  📅 Q2 2025
-                </span>
+                  <i class="fas fa-external-link-alt mr-2"></i>
+                  Demo
+                </a>
               </div>
+            </div>
+          </div>
 
-              <button
-                class="w-full text-center py-3 px-4 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-500 rounded-xl cursor-not-allowed font-medium border border-gray-200"
-              >
-                🔔 Notify Me When Ready
-              </button>
+          <!-- Project Card 2 -->
+          <div
+            class="glass-card rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
+            style="animation-delay: 0.1s"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="imgs/projects/MarineConserve/samp1.jpg"
+                alt="Marine Conservation Website"
+                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+              />
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-3">
+                Marine Conservation Website
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                A modern website for a marine conservation organization,
+                featuring educational resources, project showcases, and ways to
+                get involved to protect marine ecosystems. Built with React.js
+                and Tailwind CSS.
+              </p>
+
+              <div class="bottom-4 left-4 right-4 flex gap-3">
+                <a
+                  href="https://github.com/dlarG/marine-conserve"
+                  target="_blank"
+                  class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300"
+                >
+                  <i class="fab fa-github mr-2"></i>
+                  View Code
+                </a>
+                <a
+                  href="https://marine-conserve.netlify.app"
+                  target="_blank"
+                  class="flex-1 bg-white/5 hover:bg-white/10 text-gray-300 text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300 border border-white/10"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 3 -->
+          <div
+            class="glass-card rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
+            style="animation-delay: 0.2s"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="imgs/projects/Patcorp/samp1.jpg"
+                alt="Website for Patcorp Business Solutions"
+                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+              />
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-3">
+                Website and WebApp for Patcorp Business
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                A website and a web application for Patcorp, a company
+                specialized in tourism and travel-related services. The web app
+                includes saving personal files and driver management features.
+              </p>
+
+              <div class="bottom-4 left-4 right-4 flex gap-3">
+                <a
+                  href="https://github.com/dlarG/PATCORP"
+                  target="_blank"
+                  class="flex-1 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300"
+                >
+                  <i class="fab fa-github mr-2"></i>
+                  View Code
+                </a>
+                <a
+                  href="https://patcorp.onrender.com"
+                  target="_blank"
+                  class="flex-1 bg-white/5 hover:bg-white/10 text-gray-300 text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300 border border-white/10"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i>
+                  Demo
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- View More Button -->
-        <div class="text-center mt-12">
+        <!-- View More -->
+        <div class="text-center mt-16 animate-fade-in">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/dlarG"
             target="_blank"
-            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+            class="inline-flex items-center px-8 py-4 border border-primary-500/30 text-primary-400 hover:bg-primary-500/10 rounded-xl font-semibold transition hover-lift glass-card"
           >
             View All Projects on GitHub
-            <svg
-              class="ml-2 w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
+            <i class="fas fa-arrow-right ml-3"></i>
           </a>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
-          Get In <span class="text-primary-600">Touch</span>
-        </h2>
+    <section id="contact" class="py-24 relative">
+      <div class="section-divider my-16"></div>
 
-        <div class="flex flex-col lg:flex-row gap-12">
-          <div class="lg:w-1/2">
-            <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
-            <p class="text-gray-600 mt-8">
-              Feel free to reach out if you're looking for a developer, have a
-              question, or just want to connect.
-            </p>
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-20">
+          <span
+            class="inline-flex items-center py-2 px-4 mb-6 text-sm font-semibold text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/30 animate-fade-in"
+          >
+            <i class="fas fa-envelope mr-2"></i>
+            GET IN TOUCH
+          </span>
 
-            <div class="space-y-6">
-              <div class="flex items-start">
-                <div class="bg-primary-100 p-3 rounded-lg mr-4">
-                  <i class="fas fa-envelope text-primary-600"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-gray-800">Email</h4>
-                  <a
-                    href="mailto:geraldcatina5@gmail.com"
-                    class="text-gray-600 hover:text-primary-600 transition"
-                    >geraldcatina5@gmail.com</a
+          <h2
+            class="text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight animate-slide-up"
+          >
+            Let's <span class="gradient-text">Connect</span>
+          </h2>
+
+          <p
+            class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed animate-fade-in"
+            style="animation-delay: 0.2s"
+          >
+            Have a project in mind? Let's work together to bring your ideas to
+            life.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <!-- Contact Info -->
+          <div class="space-y-8 animate-slide-right">
+            <div class="glass-card p-8 rounded-3xl border border-white/10">
+              <h3 class="text-2xl font-bold text-white mb-6">
+                Contact Information
+              </h3>
+              <p class="text-gray-400 mb-8">
+                Feel free to reach out if you're looking for a developer, have a
+                question, or just want to connect.
+              </p>
+
+              <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary-500/20 flex items-center justify-center flex-shrink-0"
                   >
+                    <i class="fas fa-envelope text-primary-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-white">Email</h4>
+                    <a
+                      href="mailto:geraldcatina5@gmail.com"
+                      class="text-gray-400 hover:text-primary-400 transition"
+                    >
+                      geraldcatina5@gmail.com
+                    </a>
+                  </div>
                 </div>
-              </div>
 
-              <div class="flex items-start">
-                <div class="bg-primary-100 p-3 rounded-lg mr-4">
-                  <i class="fas fa-phone-alt text-primary-600"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-gray-800">Phone</h4>
-                  <a
-                    href="tel:+1234567890"
-                    class="text-gray-600 hover:text-primary-600 transition"
-                    >+63 970 068 4932</a
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary-500/20 flex items-center justify-center flex-shrink-0"
                   >
+                    <i class="fas fa-phone-alt text-primary-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-white">Phone</h4>
+                    <a
+                      href="tel:+639700684932"
+                      class="text-gray-400 hover:text-primary-400 transition"
+                    >
+                      +63 970 068 4932
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary-500/20 flex items-center justify-center flex-shrink-0"
+                  >
+                    <i class="fas fa-map-marker-alt text-primary-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-white">Location</h4>
+                    <p class="text-gray-400">Southern Leyte, Philippines</p>
+                  </div>
                 </div>
               </div>
 
-              <div class="flex items-start">
-                <div class="bg-primary-100 p-3 rounded-lg mr-4">
-                  <i class="fas fa-map-marker-alt text-primary-600"></i>
+              <div class="mt-10 pt-8 border-t border-white/10">
+                <h4 class="font-medium text-white mb-4">Follow Me</h4>
+                <div class="flex space-x-4">
+                  <a
+                    href="https://github.com/dlarG"
+                    target="_blank"
+                    class="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-white transition hover-lift"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/gerald-catena-441393321/"
+                    target="_blank"
+                    class="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-white transition hover-lift"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="https://web.facebook.com/gerald.catena.1"
+                    target="_blank"
+                    class="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-white transition hover-lift"
+                  >
+                    <i class="fab fa-facebook"></i>
+                  </a>
                 </div>
-                <div>
-                  <h4 class="font-medium text-gray-800">Location</h4>
-                  <p class="text-gray-600">
-                    Purok 1, Rizal Sogod Southern Leyte, PH
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-8">
-              <h4 class="font-medium text-gray-800 mb-4">Follow Me</h4>
-              <div class="flex space-x-4">
-                <a
-                  href="https://github.com/dlarG"
-                  class="bg-gray-100 hover:bg-primary-100 text-gray-700 hover:text-primary-600 w-10 h-10 rounded-full flex items-center justify-center transition"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/gerald-catena-441393321/"
-                  class="bg-gray-100 hover:bg-primary-100 text-gray-700 hover:text-primary-600 w-10 h-10 rounded-full flex items-center justify-center transition"
-                >
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a
-                  href="https://web.facebook.com/gerald.catena.1"
-                  class="bg-gray-100 hover:bg-primary-100 text-gray-700 hover:text-primary-600 w-10 h-10 rounded-full flex items-center justify-center transition"
-                >
-                  <i class="fab fa-facebook"></i>
-                </a>
               </div>
             </div>
           </div>
 
-          <div class="lg:w-1/2">
-            <form id="contact-form" class="bg-gray-50 p-8 rounded-xl shadow-md">
+          <!-- Contact Form -->
+          <div
+            class="glass-card p-8 rounded-3xl border border-white/10 animate-slide-up"
+          >
+            <form id="contact-form">
               <div class="mb-6">
-                <label for="name" class="block text-gray-700 font-medium mb-2"
+                <label for="name" class="block text-gray-300 font-medium mb-3"
                   >Full Name</label
                 >
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition"
+                  class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition"
+                  placeholder="Enter your name"
                   required
                 />
               </div>
 
               <div class="mb-6">
-                <label for="email" class="block text-gray-700 font-medium mb-2"
+                <label for="email" class="block text-gray-300 font-medium mb-3"
                   >Email Address</label
                 >
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition"
+                  class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition"
+                  placeholder="Enter your email"
                   required
                 />
               </div>
@@ -1005,38 +979,40 @@
               <div class="mb-6">
                 <label
                   for="subject"
-                  class="block text-gray-700 font-medium mb-2"
+                  class="block text-gray-300 font-medium mb-3"
                   >Subject</label
                 >
                 <input
                   type="text"
                   id="subject"
                   name="subject"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition"
+                  class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition"
+                  placeholder="What is this regarding?"
                   required
                 />
               </div>
 
-              <div class="mb-6">
+              <div class="mb-8">
                 <label
                   for="message"
-                  class="block text-gray-700 font-medium mb-2"
+                  class="block text-gray-300 font-medium mb-3"
                   >Message</label
                 >
                 <textarea
                   id="message"
                   name="message"
                   rows="5"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition"
+                  class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition"
+                  placeholder="Your message here..."
                   required
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition shadow-md hover:shadow-lg flex items-center justify-center"
+                class="w-full bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover-lift animate-pulse-glow"
               >
-                <i class="fas fa-paper-plane mr-2"></i> Send Message
+                <i class="fas fa-paper-plane mr-3"></i> Send Message
               </button>
             </form>
           </div>
@@ -1045,40 +1021,48 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer class="py-12 border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-6 md:mb-0">
-            <p class="text-gray-400 mt-2">
+          <div class="mb-6 md:mb-0 text-center md:text-left">
+            <div class="flex items-center space-x-3 mb-4">
+              <div
+                class="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center"
+              >
+                <span class="font-bold text-white">GC</span>
+              </div>
+              <span class="text-xl font-bold gradient-text">Gerald Catina</span>
+            </div>
+            <p class="text-gray-500">
               Building digital experiences that matter.
             </p>
           </div>
 
           <div class="flex flex-col items-center md:items-end">
-            <div class="flex space-x-6 mb-4">
+            <div class="flex space-x-6 mb-6">
               <a
                 href="https://github.com/dlarG"
-                class="text-gray-400 hover:text-white transition"
+                target="_blank"
+                class="text-gray-500 hover:text-primary-400 transition"
               >
-                <i class="fab fa-github"></i>
+                <i class="fab fa-github text-xl"></i>
               </a>
               <a
                 href="https://www.linkedin.com/in/gerald-catena-441393321/"
-                class="text-gray-400 hover:text-white transition"
+                target="_blank"
+                class="text-gray-500 hover:text-primary-400 transition"
               >
-                <i class="fab fa-linkedin-in"></i>
+                <i class="fab fa-linkedin-in text-xl"></i>
               </a>
               <a
                 href="https://web.facebook.com/gerald.catena.1"
-                class="text-gray-400 hover:text-white transition"
+                target="_blank"
+                class="text-gray-500 hover:text-primary-400 transition"
               >
-                <i class="fab fa-facebook"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook text-xl"></i>
               </a>
             </div>
-            <p class="text-gray-400 text-sm">
+            <p class="text-gray-600 text-sm">
               © 2025 Gerald Catina. All rights reserved.
             </p>
           </div>
@@ -1089,13 +1073,44 @@
     <!-- Back to Top Button -->
     <button
       id="back-to-top"
-      class="fixed bottom-8 right-8 bg-primary-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300"
+      class="fixed bottom-8 right-8 bg-gradient-to-br from-primary-600 to-primary-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center opacity-0 invisible transition-all duration-300 hover-lift z-40"
     >
       <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- JavaScript -->
     <script>
+      // Page loading animation
+      window.addEventListener("load", function () {
+        const loadingBar = document.querySelector(".loading-bar");
+        loadingBar.style.width = "100%";
+
+        setTimeout(() => {
+          loadingBar.style.opacity = "0";
+          setTimeout(() => {
+            loadingBar.style.display = "none";
+          }, 300);
+        }, 500);
+
+        // Animate elements on load
+        document.querySelectorAll(".animate-on-load").forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add("animated");
+          }, index * 100);
+        });
+      });
+
+      // Update loading bar on scroll
+      window.addEventListener("scroll", function () {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.querySelector(".loading-bar").style.width = scrolled + "%";
+      });
+
       // Custom typing animation
       document.addEventListener("DOMContentLoaded", function () {
         const text = "Gerald Catina";
@@ -1106,35 +1121,46 @@
           if (i < text.length) {
             typingElement.textContent += text.charAt(i);
             i++;
-            setTimeout(typeWriter, 100); // Adjust typing speed here
+            setTimeout(typeWriter, 100);
           } else {
-            // Animation complete - you can add cursor blink or other effects here
+            // Add blinking cursor after typing
+            typingElement.style.borderRight = "2px solid #0ea5e9";
           }
         }
 
-        // Start the typing animation
-        typeWriter();
+        // Start the typing animation after a short delay
+        setTimeout(() => {
+          typeWriter();
+        }, 500);
 
-        // Optional: Add blinking cursor effect
-        typingElement.style.borderRight = "2px solid #0ea5e9"; // Primary-600 color
-        typingElement.style.animation = "blink-caret 0.75s step-end infinite";
-
-        // Add the keyframes for blinking cursor
+        // Add cursor blink animation
         const style = document.createElement("style");
         style.textContent = `
-      @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: #0ea5e9; }
-      }
-    `;
+          @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #0ea5e9; }
+          }
+        `;
         document.head.appendChild(style);
       });
+
       // Mobile menu toggle
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
 
       mobileMenuButton.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("animate-slide-up");
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener("click", (event) => {
+        if (
+          !mobileMenu.contains(event.target) &&
+          !mobileMenuButton.contains(event.target)
+        ) {
+          mobileMenu.classList.add("hidden");
+        }
       });
 
       // Smooth scrolling for navigation links
@@ -1147,7 +1173,7 @@
 
           if (targetElement) {
             window.scrollTo({
-              top: targetElement.offsetTop - 80,
+              top: targetElement.offsetTop - 100,
               behavior: "smooth",
             });
 
@@ -1159,31 +1185,30 @@
         });
       });
 
-      // Highlight active nav link on scroll
-      const sections = document.querySelectorAll("section");
-      const navLinks = document.querySelectorAll(".nav-link");
-
+      // Navbar background on scroll
+      const navbar = document.getElementById("navbar");
       window.addEventListener("scroll", () => {
-        let current = "";
-
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-
-          if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute("id");
-          }
-        });
-
-        navLinks.forEach((link) => {
-          link.classList.remove("text-primary-600");
-          link.classList.add("text-gray-500");
-
-          if (link.getAttribute("href") === `#${current}`) {
-            link.classList.remove("text-gray-500");
-            link.classList.add("text-primary-600");
-          }
-        });
+        if (window.scrollY > 50) {
+          navbar.classList.add(
+            "glass-card",
+            "py-3",
+            "rounded-2xl",
+            "border",
+            "border-white/10",
+            "mt-4"
+          );
+        } else {
+          navbar.classList.remove(
+            "glass-card",
+            "py-3",
+            "mx-4",
+            "mt-4",
+            "rounded-2xl",
+            "border",
+            "border-white/10"
+          );
+          navbar.classList.add("py-4", "px-6");
+        }
       });
 
       // Back to top button
@@ -1210,17 +1235,7 @@
       const downloadResumeButton = document.getElementById("download-resume");
 
       downloadResumeButton.addEventListener("click", () => {
-        // In a real implementation, this would link to your actual resume PDF
-        alert("Downloading resume...");
-        // window.open('path/to/your/resume.pdf', '_blank');
-      });
-
-      // Show more certifications
-      const showMoreCertsButton = document.getElementById("show-more-certs");
-
-      showMoreCertsButton.addEventListener("click", () => {
-        alert("Showing more certifications...");
-        // In a real implementation, this would load more certifications or show hidden ones
+        window.open("imgs/resume/CatinaGerald_Resume.pdf", "_blank");
       });
 
       // Contact form submission
@@ -1238,42 +1253,91 @@
         // Here you would typically send the form data to a server
         console.log({ name, email, subject, message });
 
-        // Show success message
-        alert("Thank you for your message! I will get back to you soon.");
+        // Show success message with animation
+        const button = contactForm.querySelector("button");
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-check mr-2"></i> Message Sent!';
+        button.classList.remove("from-primary-600", "to-primary-700");
+        button.classList.add("from-green-500", "to-green-600");
+
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.classList.remove("from-green-500", "to-green-600");
+          button.classList.add("from-primary-600", "to-primary-700");
+        }, 3000);
 
         // Reset form
         contactForm.reset();
       });
-    </script>
-    <script>
-      // Animate skill bars when section comes into view
-      document.addEventListener("DOMContentLoaded", function () {
-        const animateSkillBars = () => {
-          const skillBars = document.querySelectorAll(".skill-bar");
-          skillBars.forEach((bar) => {
-            const targetWidth = bar.getAttribute("data-width");
-            bar.style.width = "0";
-            setTimeout(() => {
-              bar.style.width = targetWidth;
-              bar.style.transition =
-                "width 1.2s cubic-bezier(0.65, 0, 0.35, 1)";
-            }, 100);
-          });
-        };
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                animateSkillBars();
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.1 }
-        );
+      // Animate skill bars on scroll
+      function animateSkillBars() {
+        document.querySelectorAll(".skill-item").forEach((item) => {
+          const bar = item.querySelector(".skill-bar");
+          const percent = item.getAttribute("data-percent");
 
-        observer.observe(document.getElementById("about"));
+          setTimeout(() => {
+            bar.style.width = percent + "%";
+            bar.style.transition = "width 1.5s cubic-bezier(0.65, 0, 0.35, 1)";
+          }, 100);
+        });
+      }
+
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+            if (entry.target.id === "about") {
+              animateSkillBars();
+            }
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections
+      document.querySelectorAll("section").forEach((section) => {
+        observer.observe(section);
+      });
+
+      // 3D card effect on hero card
+      const heroCard = document.getElementById("hero-card");
+      if (heroCard) {
+        heroCard.addEventListener("mousemove", (e) => {
+          const cardRect = heroCard.getBoundingClientRect();
+          const cardCenterX = cardRect.left + cardRect.width / 2;
+          const cardCenterY = cardRect.top + cardRect.height / 2;
+
+          const mouseX = e.clientX - cardCenterX;
+          const mouseY = e.clientY - cardCenterY;
+
+          const rotateY = mouseX / 50;
+          const rotateX = -mouseY / 50;
+
+          heroCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        heroCard.addEventListener("mouseleave", () => {
+          heroCard.style.transform =
+            "perspective(1000px) rotateX(0) rotateY(0)";
+          heroCard.style.transition = "transform 0.5s ease";
+        });
+      }
+
+      // Parallax effect for background elements
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll(".parallax");
+
+        parallaxElements.forEach((element) => {
+          const speed = element.getAttribute("data-speed") || 0.5;
+          element.style.transform = `translateY(${scrolled * speed}px)`;
+        });
       });
     </script>
   </body>
