@@ -23,6 +23,93 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"
     />
+    <style>
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+
+      body {
+        background-color: #0a0a0a;
+        color: #f8fafc;
+        overflow-x: hidden;
+      }
+
+      ::selection {
+        background-color: rgba(14, 165, 233, 0.3);
+        color: white;
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, #0ea5e9, #3b82f6, #8b5cf6);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 3s ease infinite;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .section-divider {
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(14, 165, 233, 0.5),
+          transparent
+        );
+      }
+
+      .grid-pattern {
+        background-image: linear-gradient(
+            rgba(14, 165, 233, 0.1) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1a1a1a;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #0ea5e9;
+        border-radius: 5px;
+      }
+
+      /* Loading animation */
+      .loading-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, #0ea5e9, #3b82f6, #8b5cf6);
+        z-index: 9999;
+        transition: width 0.3s ease;
+      }
+    </style>
     <script>
       tailwind.config = {
         theme: {
@@ -1029,7 +1116,11 @@
               <div
                 class="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center"
               >
-                <span class="font-bold text-white">GC</span>
+                <img
+                  src="imgs/meme.png"
+                  alt="Logo"
+                  class="w-8 h-8 object-cover rounded-full"
+                />
               </div>
               <span class="text-xl font-bold gradient-text">Gerald Catina</span>
             </div>
@@ -1063,7 +1154,7 @@
               </a>
             </div>
             <p class="text-gray-600 text-sm">
-              © 2025 Gerald Catina. All rights reserved.
+              © 2026 Gerald Catina. All rights reserved.
             </p>
           </div>
         </div>
