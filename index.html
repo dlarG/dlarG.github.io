@@ -228,7 +228,7 @@
           <div class="hidden md:flex items-center space-x-8">
             <a
               href="#home"
-              class="nav-link text-primary-400 font-medium text-lg relative group"
+              class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
             >
               <span class="relative z-10">Home</span>
               <span
@@ -249,6 +249,15 @@
               class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
             >
               <span class="relative z-10">Projects</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+            <a
+              href="#tech-stack"
+              class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
+            >
+              <span class="relative z-10">Tech Stack</span>
               <span
                 class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
               ></span>
@@ -298,32 +307,37 @@
       <!-- Mobile menu -->
       <div
         id="mobile-menu"
-        class="md:hidden hidden absolute top-full left-0 right-0 mt-2 mx-4 rounded-xl glass-card backdrop-blur-lg border border-white/10 shadow-2xl animate-slide-up"
+        class="md:hidden hidden absolute top-full left-0 right-0 mt-2 mx-4 rounded-xl glass-card backdrop-blur-2xl border border-white/10 shadow-2xl animate-slide-up"
       >
         <div class="px-4 pt-4 pb-6 space-y-3">
           <a
             href="#home"
-            class="block px-4 py-3 rounded-lg text-base font-medium text-primary-400 bg-primary-500/10 hover:bg-primary-500/20 transition"
+            class="nav-link block px-4 py-3 rounded-lg text-base font-medium text-primary-400 bg-primary-500/10 hover:bg-primary-500/20 transition"
             >Home</a
           >
           <a
             href="#about"
-            class="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
+            class="nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
             >About</a
           >
           <a
             href="#projects"
-            class="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
+            class="nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
             >Projects</a
           >
           <a
+            href="#tech-stack"
+            class="nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
+            >Tech Stack</a
+          >
+          <a
             href="#contact"
-            class="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
+            class="nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
             >Contact</a
           >
           <a
             href="#certifications"
-            class="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
+            class="nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
             >Certifications</a
           >
         </div>
@@ -446,7 +460,7 @@
           </div>
 
           <!-- Right Content - 3D Card Effect -->
-          <div class="relative flex justify-center lg:justify-end">
+          <div class="hidden lg:flex relative justify-center lg:justify-end">
             <div class="relative w-full max-w-md perspective-1000">
               <div
                 class="relative rounded-3xl overflow-hidden hover-lift transition-all duration-700 transform-style-3d"
@@ -1171,6 +1185,65 @@
     <!-- JavaScript -->
     <script>
       // Page loading animation
+
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll('a.nav-link[href^="#"]');
+
+      function setActiveNavLink() {
+        let currentSectionId = null;
+
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          const offset = 150; // adjust "trigger" height from top
+
+          if (rect.top <= offset && rect.bottom > offset) {
+            currentSectionId = section.id;
+          }
+        });
+
+        navLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          const isActive = href === `#${currentSectionId}`;
+
+          // reset common classes
+          link.classList.remove(
+            "text-primary-400",
+            "bg-primary-500/10",
+            "nav-link-active-desktop",
+            "nav-link-active-mobile"
+          );
+
+          // base/inactive color classes
+          if (link.closest(".md\\:hidden")) {
+            // mobile menu link
+            link.classList.add("text-gray-300");
+          } else {
+            // desktop link
+            link.classList.add("text-gray-300");
+          }
+
+          // apply active state
+          if (isActive) {
+            if (link.closest(".md\\:hidden")) {
+              // mobile
+              link.classList.remove("text-gray-300");
+              link.classList.add(
+                "text-primary-400",
+                "bg-primary-500/10",
+                "nav-link-active-mobile"
+              );
+            } else {
+              // desktop
+              link.classList.remove("text-gray-300");
+              link.classList.add("text-primary-400", "nav-link-active-desktop");
+            }
+          }
+        });
+      }
+
+      window.addEventListener("scroll", setActiveNavLink);
+      // run once on load
+      window.addEventListener("load", setActiveNavLink);
       window.addEventListener("load", function () {
         const loadingBar = document.querySelector(".loading-bar");
         loadingBar.style.width = "100%";
@@ -1308,25 +1381,10 @@
       const navbar = document.getElementById("navbar");
       window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
-          navbar.classList.add(
-            "glass-card",
-            "py-3",
-            "rounded-2xl",
-            "border",
-            "border-white/10",
-            "mt-4"
-          );
+          navbar.classList.add("glass-card", "py-3");
         } else {
-          navbar.classList.remove(
-            "glass-card",
-            "py-3",
-            "mx-4",
-            "mt-4",
-            "rounded-2xl",
-            "border",
-            "border-white/10"
-          );
-          navbar.classList.add("py-4", "px-6");
+          navbar.classList.remove("glass-card", "py-3", "py-2");
+          navbar.classList.add("py-2", "px-6");
         }
       });
 
