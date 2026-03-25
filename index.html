@@ -73,6 +73,14 @@
           linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1px, transparent 1px);
         background-size: 40px 40px;
       }
+      .nav-link-active-desktop {
+        color: #38bdf8; /* text-primary-400 */
+      }
+
+      .nav-link-active-mobile {
+        color: #38bdf8; /* text-primary-400 */
+        background-color: rgba(14, 165, 233, 0.1); /* primary-500/10 */
+      }
       @keyframes gradientShift {
         0% {
           background-position: 0% 50%;
@@ -211,8 +219,10 @@
       <div class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center">
           <div class="flex items-center space-x-2">
-            <i class="fas fa-code text-primary-400 text-2xl"></i>
-            <span class="text-xl font-bold gradient-text">Gerald Catina</span>
+            <i class="fas fa-code text-primary-400 text-2xl"></i
+            ><span class="text-primary-400 text-xl font-bold"
+              >Gerald Catina</span
+            >
           </div>
 
           <div class="hidden md:flex items-center space-x-8">
@@ -326,20 +336,9 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <!-- Left Content -->
           <div class="animate-slide-up">
-            <div
-              class="inline-flex items-center px-4 py-2 rounded-full glass-card mb-6 animate-fade-in"
-            >
-              <div
-                class="w-2 h-2 rounded-full bg-primary-500 mr-2 animate-pulse"
-              ></div>
-              <span class="text-sm font-medium"
-                >Available for opportunities</span
-              >
-            </div>
-
             <h1 class="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight">
-              <span class="block text-gray-100">Hi, I'm</span>
-              <span id="typing-text" class="gradient-text text-outline"></span>
+              <span class="block text-gray-100">Hi, I'm</span
+              ><span class="gradient-text text-outline">Gerald Catina</span>
             </h1>
 
             <h2
@@ -347,7 +346,7 @@
               style="animation-delay: 0.2s"
             >
               A Passionate
-              <span class="gradient-text font-bold">Web Developer</span>
+              <span id="typing-text" class="gradient-text font-bold"></span>
             </h2>
 
             <p
@@ -391,7 +390,7 @@
               </button>
             </div>
 
-            <div class="mt-12 animate-fade-in" style="animation-delay: 0.8s">
+            <!-- <div class="mt-12 animate-fade-in" style="animation-delay: 0.8s">
               <p class="text-gray-400 mb-4">Tech Stack</p>
               <div class="flex flex-wrap gap-3">
                 <div
@@ -443,7 +442,7 @@
                   <span>GIS</span>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <!-- Right Content - 3D Card Effect -->
@@ -751,7 +750,7 @@
           >
             <div class="relative h-64 overflow-hidden">
               <img
-                src="imgs/projects/DeepCoral/samp.jpg"
+                src="imgs/projects/DeepCoral/main.png"
                 alt="Coral Cover Analysis Project"
                 class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
               />
@@ -1204,18 +1203,43 @@
 
       // Custom typing animation
       document.addEventListener("DOMContentLoaded", function () {
-        const text = "Gerald Catina";
+        const texts = ["Web Developer", "Deep Learning Engineer"];
         const typingElement = document.getElementById("typing-text");
-        let i = 0;
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
         function typeWriter() {
-          if (i < text.length) {
-            typingElement.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
+          const currentText = texts[textIndex];
+
+          if (!isDeleting) {
+            // Typing
+            if (charIndex < currentText.length) {
+              typingElement.textContent += currentText.charAt(charIndex);
+              charIndex++;
+              setTimeout(typeWriter, 100);
+            } else {
+              // Finished typing, wait then start deleting
+              setTimeout(() => {
+                isDeleting = true;
+                typeWriter();
+              }, 2000);
+            }
           } else {
-            // Add blinking cursor after typing
-            typingElement.style.borderRight = "2px solid #0ea5e9";
+            // Deleting
+            if (charIndex > 0) {
+              typingElement.textContent = currentText.substring(
+                0,
+                charIndex - 1
+              );
+              charIndex--;
+              setTimeout(typeWriter, 50);
+            } else {
+              // Finished deleting, move to next text
+              isDeleting = false;
+              textIndex = (textIndex + 1) % texts.length;
+              setTimeout(typeWriter, 200);
+            }
           }
         }
 
@@ -1227,9 +1251,13 @@
         // Add cursor blink animation
         const style = document.createElement("style");
         style.textContent = `
+          #typing-text {
+        border-right: 2px solid #0ea5e9;
+        animation: blink-caret 1s step-end infinite;
+          }
           @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #0ea5e9; }
+        from, to { border-color: transparent }
+        50% { border-color: #0ea5e9; }
           }
         `;
         document.head.appendChild(style);
