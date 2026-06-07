@@ -223,9 +223,7 @@
     </script>
   </head>
   <body class="font-sans overflow-x-hidden">
-    <!-- Loading Bar -->
     <div class="loading-bar"></div>
-
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
       <div
         class="absolute top-1/4 left-10 w-96 h-96 bg-primary-500/10 rounded-full animate-blob filter blur-3xl"
@@ -279,24 +277,7 @@
                 class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
               ></span>
             </a>
-            <a
-              href="#tech-stack"
-              class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
-            >
-              <span class="relative z-10">Tech Stack</span>
-              <span
-                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
-              ></span>
-            </a>
-            <a
-              href="#certifications"
-              class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
-            >
-              <span class="relative z-10">Certificates</span>
-              <span
-                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
-              ></span>
-            </a>
+
             <a
               href="#contact"
               class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
@@ -370,20 +351,17 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
     <section
       id="home"
       class="min-h-screen relative pt-24 pb-0 flex flex-col justify-end overflow-hidden"
     >
-      <!-- Background Typography Layer -->
       <div
         class="absolute inset-x-0 top-[22%] lg:top-[35%] -translate-y-1/2 flex flex-col items-center justify-center z-0 pointer-events-none select-none w-full px-4"
       >
-        <!-- Massive Name -->
         <h1
           class="text-[10vw] lg:text-[11vw] font-black text-white tracking-tighter uppercase whitespace-nowrap leading-none drop-shadow-2xl"
         >
-          GERALD CATINA
+          GERALD &nbsp;CATINA
         </h1>
         <div
           class="flex justify-between w-full max-w-[90%] lg:max-w-4xl opacity-80"
@@ -401,15 +379,12 @@
         </div>
       </div>
 
-      <!-- Main Center Image -->
       <div
         class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[45vh] lg:h-[80vh] flex justify-center items-end z-10 pointer-events-none animate-fade-in"
       >
-        <!-- Backglow -->
         <div
           class="absolute inset-0 bg-primary-500/20 blur-[120px] rounded-full w-2/3 mx-auto h-2/3 bottom-0"
         ></div>
-        <!-- Your Image (Added mask-image for bottom fade) -->
         <img
           src="imgs/hero1.png"
           alt="Gerald Catina"
@@ -425,11 +400,9 @@
         />
       </div>
 
-      <!-- Bottom Layout Container -->
       <div
         class="max-w-7xl mx-auto w-full px-6 relative z-20 pointer-events-auto flex-1 flex flex-col justify-end pb-8"
       >
-        <!-- Bottom Left Text Block -->
         <div
           class="max-w-md bg-black/20 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none p-4 lg:p-0 rounded-2xl mb-4 lg:mb-4"
         >
@@ -454,7 +427,6 @@
             </span>
           </p>
 
-          <!-- Action Buttons -->
           <div
             class="flex flex-col sm:flex-row gap-3 lg:gap-4 animate-slide-up"
             style="animation-delay: 0.2s"
@@ -463,7 +435,7 @@
               href="#contact"
               class="bg-white hover:bg-gray-100 text-black px-8 py-3.5 rounded-full font-bold transition hover-lift text-center shadow-[0_0_20px_rgba(255,255,255,0.2)]"
             >
-              Schedule Call
+              <i class="fas fa-paper-plane"></i> &nbsp; <span>Contact Me</span>
             </a>
             <button
               id="download-resume"
@@ -475,11 +447,9 @@
         </div>
       </div>
 
-      <!-- Tech Stack Infinite Carousel -->
       <div
         class="w-full relative z-30 bg-gradient-to-b from-transparent via-[#020617]/40 to-[#020617]/80 pt-12 pb-6 overflow-hidden"
       >
-        <!-- Fade gradients on left and right -->
         <div
           class="absolute inset-y-0 left-0 w-8 sm:w-16 lg:w-32 bg-gradient-to-r from-[#020617] to-transparent z-10 pointer-events-none"
         ></div>
@@ -487,11 +457,9 @@
           class="absolute inset-y-0 right-0 w-8 sm:w-16 lg:w-32 bg-gradient-to-l from-[#020617] to-transparent z-10 pointer-events-none"
         ></div>
 
-        <!-- Carousel Track (200% width, duplicated content so it loops seamlessly) -->
         <div
           class="w-[200%] flex animate-carousel hover:[animation-play-state:paused]"
         >
-          <!-- First Set of Logos -->
           <div
             class="w-1/2 flex items-center justify-around gap-4 lg:gap-0 px-2 lg:px-0"
           >
@@ -607,7 +575,6 @@
             </div>
           </div>
 
-          <!-- Second Set of Logos (Identical for seamless loop) -->
           <div
             class="w-1/2 flex items-center justify-around gap-4 lg:gap-0 px-2 lg:px-0"
           >
@@ -726,10 +693,8 @@
       </div>
     </section>
 
-    <!-- About Me section -->
-    <section id="about" class="relative py-24">
+    <section id="about" class="relative py-16 lg:py-24">
       <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <!-- Section Header -->
         <div class="text-center mb-16 lg:mb-24">
           <h2
             class="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight animate-slide-up"
@@ -738,7 +703,6 @@
           </h2>
         </div>
 
-        <!-- Content Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <!-- Left Column: Biography -->
           <div class="lg:col-span-5 space-y-8 animate-slide-right">
@@ -748,9 +712,12 @@
               class="space-y-5 text-gray-300 text-lg leading-relaxed font-light"
             >
               <p>
-                I am a
-                <span class="font-medium text-white">recent graduate</span> and
-                a highly passionate software developer. My journey into
+                I am a recent graduate
+                <span class="font-medium text-white">
+                  of Information Technology at Southern Leyte State University -
+                  Main Campus</span
+                >
+                and a highly passionate software developer. My journey into
                 programming began with a deep curiosity for problem-solving,
                 which quickly evolved into a drive to build seamless, scalable,
                 and user-centric digital experiences.
@@ -810,7 +777,9 @@
               >
                 <i class="fas fa-trophy text-xl"></i>
               </div>
-              <h4 class="text-lg font-bold text-white mb-2">1st Place</h4>
+              <h4 class="text-lg font-bold text-white mb-2">
+                1st Place (University Level)
+              </h4>
               <p class="text-sm text-gray-400">
                 Programming Skills Competition (CCSIT Day)
               </p>
@@ -826,7 +795,9 @@
               >
                 <i class="fas fa-medal text-xl"></i>
               </div>
-              <h4 class="text-lg font-bold text-white mb-2">2nd Place</h4>
+              <h4 class="text-lg font-bold text-white mb-2">
+                2nd Place (Regional Level)
+              </h4>
               <p class="text-sm text-gray-400">
                 Eastern Visayas Coding Olympics (Java Category)
               </p>
@@ -846,7 +817,13 @@
                 4th Place (National Level)
               </h4>
               <p class="text-sm text-gray-400">
-                SIKAPTala National IT & CS Competition (DeepCoralAI)
+                SIKAPTala National IT & CS Competition
+                <a
+                  href="https://deepcoral.site"
+                  target="_blank"
+                  class="text-primary-400 underline hover:text-primary-300 transition-colors"
+                  >(DeepCoralAI)</a
+                >
               </p>
             </div>
 
@@ -1069,8 +1046,6 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-24 relative">
-      <div class="section-divider my-16"></div>
-
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-20">
           <span
@@ -1505,8 +1480,11 @@
           const targetElement = document.querySelector(targetId);
 
           if (targetElement) {
+            const elementPosition =
+              targetElement.getBoundingClientRect().top + window.scrollY;
+
             window.scrollTo({
-              top: targetElement.offsetTop - 100,
+              top: elementPosition,
               behavior: "smooth",
             });
 
