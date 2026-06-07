@@ -32,6 +32,7 @@ tailwind.config = {
         "pulse-glow": "pulseGlow 2s ease-in-out infinite",
         "gradient-shift": "gradientShift 3s ease infinite",
         blob: "blob 7s infinite",
+        carousel: "carousel 30s linear infinite",
       },
       keyframes: {
         float: {
@@ -63,6 +64,10 @@ tailwind.config = {
           "33%": { transform: "translate(30px, -50px) scale(1.1)" },
           "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
           "100%": { transform: "translate(0px, 0px) scale(1)" },
+        },
+        carousel: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       backgroundImage: {
