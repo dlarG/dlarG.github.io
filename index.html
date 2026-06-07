@@ -1191,161 +1191,365 @@
 
         <!-- Projects Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project Card 1 -->
+          <!-- Project Card 1: DeepCoral -->
           <div
-            class="glass-card rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
+            class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
           >
-            <div class="relative h-64 overflow-hidden">
+            <div class="relative h-56 overflow-hidden">
               <img
                 src="imgs/projects/DeepCoral/main.png"
                 alt="Coral Cover Analysis Project"
-                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
               />
-
-              <!-- Tech tags -->
-              <!-- <div class="absolute bottom-4 left-4 right-4">
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 text-xs font-medium text-primary-400 bg-primary-500/20 rounded-full border border-primary-500/30 backdrop-blur-sm"
-                  >
-                    AI/ML
-                  </span>
-                  <span
-                    class="px-3 py-1 text-xs font-medium text-blue-400 bg-blue-500/20 rounded-full border border-blue-500/30 backdrop-blur-sm"
-                  >
-                    Flask
-                  </span>
-                  <span
-                    class="px-3 py-1 text-xs font-medium text-green-400 bg-green-500/20 rounded-full border border-green-500/30 backdrop-blur-sm"
-                  >
-                    Python
-                  </span>
-                </div>
-              </div> -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-80"
+              ></div>
             </div>
 
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-white mb-3">
-                Automated Coral Cover Percentage Estimation
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="text-xl font-bold text-white mb-2 group-hover:text-primary-400 transition-colors"
+              >
+                Automated Coral Cover Estimation
               </h3>
-              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-primary-400 bg-primary-500/10 border border-primary-500/20 rounded-md"
+                  >Python</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-primary-400 bg-primary-500/10 border border-primary-500/20 rounded-md"
+                  >YOLOv8</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-primary-400 bg-primary-500/10 border border-primary-500/20 rounded-md"
+                  >AI Model</span
+                >
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
                 Advanced AI-powered solution using YOLO and U-Net models to
                 automatically analyze underwater images and calculate coral
-                coverage percentages for marine conservation efforts.
+                coverage percentages for marine conservation.
               </p>
 
-              <div class="bottom-4 left-4 right-4 flex gap-3">
+              <div class="mt-auto flex gap-3">
+                <a
+                  href="#case-study-deepcoral"
+                  class="flex-1 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white text-center py-2.5 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg text-sm flex items-center justify-center"
+                >
+                  <i class="fas fa-file-alt mr-2"></i> Case Study
+                </a>
                 <a
                   href="https://github.com/dlarG/deepcoralv1"
                   target="_blank"
-                  class="flex-1 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300"
+                  class="bg-white/5 hover:bg-white/10 text-gray-300 py-2.5 px-4 rounded-xl transition-all duration-300 border border-white/10 text-sm flex items-center justify-center"
                 >
-                  <i class="fab fa-github mr-2"></i>
-                  View Code
-                </a>
-                <a
-                  href="https://deepcoral.site"
-                  target="_blank"
-                  class="flex-1 bg-white/5 hover:bg-white/10 text-gray-300 text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300 border border-white/10"
-                >
-                  <i class="fas fa-external-link-alt mr-2"></i>
-                  Demo
+                  <i class="fab fa-github"></i>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Project Card 2 -->
+          <!-- Project Card 2: Marine Conserve -->
           <div
-            class="glass-card rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
+            class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
             style="animation-delay: 0.1s"
           >
-            <div class="relative h-64 overflow-hidden">
+            <div class="relative h-56 overflow-hidden">
               <img
                 src="imgs/projects/MarineConserve/live.png"
                 alt="Marine Conservation Website"
-                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
               />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-80"
+              ></div>
             </div>
 
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-white mb-3">
-                Marine Conservation Website
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors"
+              >
+                Marine Conservation Platform
               </h3>
-              <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                A modern website for a marine conservation organization,
-                featuring educational resources, project showcases, and ways to
-                get involved to protect marine ecosystems. Built with React.js
-                and Tailwind CSS.
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-md"
+                  >React.js</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-md"
+                  >Tailwind</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-md"
+                  >UI/UX</span
+                >
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                A modern website for a marine conservation organization
+                featuring educational resources, engaging web animations, and
+                actionable avenues to protect marine ecosystems.
               </p>
 
-              <div class="bottom-4 left-4 right-4 flex gap-3">
+              <div class="mt-auto flex gap-3">
+                <a
+                  href="#case-study-marine"
+                  class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-center py-2.5 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg text-sm flex items-center justify-center"
+                >
+                  <i class="fas fa-file-alt mr-2"></i> Case Study
+                </a>
                 <a
                   href="https://github.com/dlarG/marine-conserve"
                   target="_blank"
-                  class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300"
+                  class="bg-white/5 hover:bg-white/10 text-gray-300 py-2.5 px-4 rounded-xl transition-all duration-300 border border-white/10 text-sm flex items-center justify-center"
                 >
-                  <i class="fab fa-github mr-2"></i>
-                  View Code
-                </a>
-                <a
-                  href="https://marineconserve.netlify.app"
-                  target="_blank"
-                  class="flex-1 bg-white/5 hover:bg-white/10 text-gray-300 text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300 border border-white/10"
-                >
-                  <i class="fas fa-external-link-alt mr-2"></i>
-                  Demo
+                  <i class="fab fa-github"></i>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Project Card 3 -->
+          <!-- Project Card 3: Patcorp -->
           <div
-            class="glass-card rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
+            class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
             style="animation-delay: 0.2s"
           >
-            <div class="relative h-64 overflow-hidden">
+            <div class="relative h-56 overflow-hidden">
               <img
                 src="imgs/projects/Patcorp/samp1.jpg"
                 alt="Website for Patcorp Business Solutions"
-                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
               />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-80"
+              ></div>
             </div>
 
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-white mb-3">
-                Website and WebApp for Patcorp Business
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors"
+              >
+                Patcorp Business Portal
               </h3>
-              <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                A website and a web application for Patcorp, a company
-                specialized in tourism and travel-related services. The web app
-                includes saving personal files and driver management features.
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-md"
+                  >Full-Stack</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-md"
+                  >Database</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-md"
+                  >Auth</span
+                >
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                A custom internal web application and landing page for Patcorp's
+                tourism services, equipped with secure file saving and
+                streamlined driver management systems.
               </p>
 
-              <div class="bottom-4 left-4 right-4 flex gap-3">
+              <div class="mt-auto flex gap-3">
+                <a
+                  href="#case-study-patcorp"
+                  class="flex-1 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white text-center py-2.5 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg text-sm flex items-center justify-center"
+                >
+                  <i class="fas fa-file-alt mr-2"></i> Case Study
+                </a>
                 <a
                   href="https://github.com/dlarG/PATCORP"
                   target="_blank"
-                  class="flex-1 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300"
+                  class="bg-white/5 hover:bg-white/10 text-gray-300 py-2.5 px-4 rounded-xl transition-all duration-300 border border-white/10 text-sm flex items-center justify-center"
                 >
-                  <i class="fab fa-github mr-2"></i>
-                  View Code
+                  <i class="fab fa-github"></i>
                 </a>
-                <a
-                  href="https://patcorp.onrender.com"
-                  target="_blank"
-                  class="flex-1 bg-white/5 hover:bg-white/10 text-gray-300 text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300 border border-white/10"
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 4: POS Inventory -->
+          <div
+            class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
+            style="animation-delay: 0.3s"
+          >
+            <div class="relative h-56 overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-black flex items-center justify-center"
+              >
+                <!-- Fallback icon if image is missing -->
+                <i class="fas fa-cash-register text-5xl text-indigo-500/50"></i>
+              </div>
+              <img
+                src="imgs/projects/pos_inventory.jpg"
+                alt="POS and Inventory System"
+                onerror="this.style.display='none'"
+                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-80"
+              ></div>
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors"
+              >
+                POS & Inventory Management
+              </h3>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-md"
+                  >Software Eng.</span
                 >
-                  <i class="fas fa-external-link-alt mr-2"></i>
-                  Demo
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-md"
+                  >Database</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-md"
+                  >Logic Dev</span
+                >
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                A robust Point of Sale system featuring real-time inventory
+                tracking, secure transaction processing, and automated low-stock
+                alerts to streamline local business operations.
+              </p>
+
+              <div class="mt-auto flex gap-3">
+                <a
+                  href="#case-study-pos"
+                  class="flex-1 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white text-center py-2.5 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg text-sm flex items-center justify-center"
+                >
+                  <i class="fas fa-file-alt mr-2"></i> Case Study
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 5: Egg Application -->
+          <div
+            class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
+            style="animation-delay: 0.4s"
+          >
+            <div class="relative h-56 overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-yellow-900/40 to-black flex items-center justify-center"
+              >
+                <i class="fas fa-egg text-5xl text-yellow-500/50"></i>
+              </div>
+              <img
+                src="imgs/projects/egg_app.jpg"
+                alt="Poultry Management System"
+                onerror="this.style.display='none'"
+                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-80"
+              ></div>
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors"
+              >
+                Poultry Financial Tracker
+              </h3>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-yellow-400 bg-yellow-500/10 border border-yellow-500/20 rounded-md"
+                  >Web App</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-yellow-400 bg-yellow-500/10 border border-yellow-500/20 rounded-md"
+                  >Automation</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-yellow-400 bg-yellow-500/10 border border-yellow-500/20 rounded-md"
+                  >Finance</span
+                >
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                An automated application designed to track and calculate daily
+                incomes, monitor expenses, process wholesale egg orders, and
+                visualize financial growth over time.
+              </p>
+
+              <div class="mt-auto flex gap-3">
+                <a
+                  href="#case-study-poultry"
+                  class="flex-1 bg-gradient-to-r from-yellow-600 to-yellow-700 hover:from-yellow-700 hover:to-yellow-800 text-white text-center py-2.5 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg text-sm flex items-center justify-center"
+                >
+                  <i class="fas fa-file-alt mr-2"></i> Case Study
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 6: MWAVE -->
+          <div
+            class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
+            style="animation-delay: 0.5s"
+          >
+            <div class="relative h-56 overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-teal-900/40 to-black flex items-center justify-center"
+              >
+                <i class="fas fa-water text-5xl text-teal-500/50"></i>
+              </div>
+              <img
+                src="imgs/projects/mwave.jpg"
+                alt="MWAVE Water System"
+                onerror="this.style.display='none'"
+                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-80"
+              ></div>
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors"
+              >
+                MWAVE GIS Setup
+              </h3>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-teal-400 bg-teal-500/10 border border-teal-500/20 rounded-md"
+                  >QGIS</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-teal-400 bg-teal-500/10 border border-teal-500/20 rounded-md"
+                  >Mapping</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-teal-400 bg-teal-500/10 border border-teal-500/20 rounded-md"
+                  >Data Viz</span
+                >
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                A community-focused spatial mapping system that visually
+                plotting contaminated vs safe water sources, featuring an
+                interactive heatmap and local reporting tools.
+              </p>
+
+              <div class="mt-auto flex gap-3">
+                <a
+                  href="#case-study-mwave"
+                  class="flex-1 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white text-center py-2.5 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg text-sm flex items-center justify-center"
+                >
+                  <i class="fas fa-file-alt mr-2"></i> Case Study
                 </a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- View More -->
         <div class="text-center mt-16 animate-fade-in">
           <a
             href="https://github.com/dlarG"
@@ -1363,13 +1567,6 @@
     <section id="contact" class="py-24 relative">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-20">
-          <span
-            class="inline-flex items-center py-2 px-4 mb-6 text-sm font-semibold text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/30 animate-fade-in"
-          >
-            <i class="fas fa-envelope mr-2"></i>
-            GET IN TOUCH
-          </span>
-
           <h2
             class="text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight animate-slide-up"
           >
