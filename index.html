@@ -1189,9 +1189,9 @@
           </p>
         </div>
 
-        <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project Card 1: DeepCoral -->
+        <div
+          class="cursor-pointer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           <div
             class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
           >
@@ -1212,7 +1212,6 @@
               >
                 Automated Coral Cover Estimation
               </h3>
-              <!-- Tags -->
               <div class="flex flex-wrap gap-2 mb-4">
                 <span
                   class="px-2.5 py-1 text-xs font-semibold text-primary-400 bg-primary-500/10 border border-primary-500/20 rounded-md"
@@ -1224,7 +1223,11 @@
                 >
                 <span
                   class="px-2.5 py-1 text-xs font-semibold text-primary-400 bg-primary-500/10 border border-primary-500/20 rounded-md"
-                  >AI Model</span
+                  >OpenCV</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-primary-400 bg-primary-500/10 border border-primary-500/20 rounded-md"
+                  >JavaScript</span
                 >
               </div>
               <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
@@ -1251,9 +1254,8 @@
             </div>
           </div>
 
-          <!-- Project Card 2: Marine Conserve -->
           <div
-            class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
+            class="cursor-pointer glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
             style="animation-delay: 0.1s"
           >
             <div class="relative h-56 overflow-hidden">
@@ -1311,7 +1313,121 @@
             </div>
           </div>
 
-          <!-- Project Card 3: Patcorp -->
+          <div
+            class="cursor-pointer glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
+            style="animation-delay: 0.5s"
+          >
+            <div class="relative h-56 overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-teal-900/40 to-black flex items-center justify-center"
+              ></div>
+              <img
+                src="imgs/projects/MWAVE/hero.png"
+                alt="MWAVE Water System"
+                onerror="this.style.display='none'"
+                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-80"
+              ></div>
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors"
+              >
+                MWAVE GIS Setup
+              </h3>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-teal-400 bg-teal-500/10 border border-teal-500/20 rounded-md"
+                  >GIS</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-teal-400 bg-teal-500/10 border border-teal-500/20 rounded-md"
+                  >Mapping</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-teal-400 bg-teal-500/10 border border-teal-500/20 rounded-md"
+                  >Data Viz</span
+                >
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                A community-focused spatial mapping system that visually
+                plotting contaminated vs safe water sources, featuring an
+                interactive heatmap and local reporting tools.
+              </p>
+
+              <div class="mt-auto flex gap-3">
+                <a
+                  href="#case-study-marine"
+                  class="flex-1 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white text-center py-2.5 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg text-sm flex items-center justify-center"
+                >
+                  <i class="fas fa-file-alt mr-2"></i> Case Study
+                </a>
+                <a
+                  href="https://github.com/dlarG/waterapp-frontend"
+                  target="_blank"
+                  class="bg-white/5 hover:bg-white/10 text-gray-300 py-2.5 px-4 rounded-xl transition-all duration-300 border border-white/10 text-sm flex items-center justify-center"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
+            style="animation-delay: 0.3s"
+          >
+            <div class="relative h-56 overflow-hidden">
+              <img
+                src="imgs/projects/POS/hero.png"
+                alt="POS and Inventory System"
+                onerror="this.style.display='none'"
+                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-80"
+              ></div>
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors"
+              >
+                POS & Inventory Management
+              </h3>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-md"
+                  >Software Eng.</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-md"
+                  >Database</span
+                >
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-md"
+                  >Logic Dev</span
+                >
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                A robust Point of Sale system featuring real-time inventory
+                tracking, secure transaction processing, and automated low-stock
+                alerts to streamline local business operations.
+              </p>
+
+              <div class="mt-auto flex gap-3">
+                <a
+                  href="#case-study-pos"
+                  class="flex-1 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white text-center py-2.5 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg text-sm flex items-center justify-center"
+                >
+                  <i class="fas fa-file-alt mr-2"></i> Case Study
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div
             class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
             style="animation-delay: 0.2s"
@@ -1360,90 +1476,16 @@
                 >
                   <i class="fas fa-file-alt mr-2"></i> Case Study
                 </a>
-                <a
-                  href="https://github.com/dlarG/PATCORP"
-                  target="_blank"
-                  class="bg-white/5 hover:bg-white/10 text-gray-300 py-2.5 px-4 rounded-xl transition-all duration-300 border border-white/10 text-sm flex items-center justify-center"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
               </div>
             </div>
           </div>
-
-          <!-- Project Card 4: POS Inventory -->
-          <div
-            class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
-            style="animation-delay: 0.3s"
-          >
-            <div class="relative h-56 overflow-hidden">
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-black flex items-center justify-center"
-              >
-                <!-- Fallback icon if image is missing -->
-                <i class="fas fa-cash-register text-5xl text-indigo-500/50"></i>
-              </div>
-              <img
-                src="imgs/projects/pos_inventory.jpg"
-                alt="POS and Inventory System"
-                onerror="this.style.display='none'"
-                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-80"
-              ></div>
-            </div>
-
-            <div class="p-6 flex flex-col flex-grow">
-              <h3
-                class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors"
-              >
-                POS & Inventory Management
-              </h3>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="px-2.5 py-1 text-xs font-semibold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-md"
-                  >Software Eng.</span
-                >
-                <span
-                  class="px-2.5 py-1 text-xs font-semibold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-md"
-                  >Database</span
-                >
-                <span
-                  class="px-2.5 py-1 text-xs font-semibold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-md"
-                  >Logic Dev</span
-                >
-              </div>
-              <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
-                A robust Point of Sale system featuring real-time inventory
-                tracking, secure transaction processing, and automated low-stock
-                alerts to streamline local business operations.
-              </p>
-
-              <div class="mt-auto flex gap-3">
-                <a
-                  href="#case-study-pos"
-                  class="flex-1 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white text-center py-2.5 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg text-sm flex items-center justify-center"
-                >
-                  <i class="fas fa-file-alt mr-2"></i> Case Study
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project Card 5: Egg Application -->
           <div
             class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
             style="animation-delay: 0.4s"
           >
             <div class="relative h-56 overflow-hidden">
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-yellow-900/40 to-black flex items-center justify-center"
-              >
-                <i class="fas fa-egg text-5xl text-yellow-500/50"></i>
-              </div>
               <img
-                src="imgs/projects/egg_app.jpg"
+                src="imgs/projects/EggApp/hero.png"
                 alt="Poultry Management System"
                 onerror="this.style.display='none'"
                 class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
@@ -1491,63 +1533,6 @@
           </div>
 
           <!-- Project Card 6: MWAVE -->
-          <div
-            class="glass-card flex flex-col rounded-3xl overflow-hidden border border-white/10 hover-lift group animate-slide-up"
-            style="animation-delay: 0.5s"
-          >
-            <div class="relative h-56 overflow-hidden">
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-teal-900/40 to-black flex items-center justify-center"
-              >
-                <i class="fas fa-water text-5xl text-teal-500/50"></i>
-              </div>
-              <img
-                src="imgs/projects/mwave.jpg"
-                alt="MWAVE Water System"
-                onerror="this.style.display='none'"
-                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-80"
-              ></div>
-            </div>
-
-            <div class="p-6 flex flex-col flex-grow">
-              <h3
-                class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors"
-              >
-                MWAVE GIS Setup
-              </h3>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="px-2.5 py-1 text-xs font-semibold text-teal-400 bg-teal-500/10 border border-teal-500/20 rounded-md"
-                  >QGIS</span
-                >
-                <span
-                  class="px-2.5 py-1 text-xs font-semibold text-teal-400 bg-teal-500/10 border border-teal-500/20 rounded-md"
-                  >Mapping</span
-                >
-                <span
-                  class="px-2.5 py-1 text-xs font-semibold text-teal-400 bg-teal-500/10 border border-teal-500/20 rounded-md"
-                  >Data Viz</span
-                >
-              </div>
-              <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
-                A community-focused spatial mapping system that visually
-                plotting contaminated vs safe water sources, featuring an
-                interactive heatmap and local reporting tools.
-              </p>
-
-              <div class="mt-auto flex gap-3">
-                <a
-                  href="#case-study-mwave"
-                  class="flex-1 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white text-center py-2.5 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg text-sm flex items-center justify-center"
-                >
-                  <i class="fas fa-file-alt mr-2"></i> Case Study
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="text-center mt-16 animate-fade-in">
