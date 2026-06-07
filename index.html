@@ -240,16 +240,24 @@
       class="fixed top-0 w-full z-50 py-4 px-6 transition-all duration-300"
       id="navbar"
     >
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-7xl mx-auto relative">
         <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2">
-            <i class="fas fa-code text-primary-400 text-2xl"></i
-            ><span class="text-primary-400 text-xl font-bold"
+          <!-- Left: Logo -->
+          <div class="flex items-center space-x-2 relative z-10">
+            <img
+              src="/imgs/icon/favicon.jpg"
+              alt="Code Logo"
+              class="w-8 h-8 rounded-full object-cover"
+            />
+            <span class="text-primary-400 text-xl font-bold"
               >Gerald Catina</span
             >
           </div>
 
-          <div class="hidden md:flex items-center space-x-8">
+          <!-- Center: Navigation Links -->
+          <div
+            class="hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2 z-10"
+          >
             <a
               href="#home"
               class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
@@ -269,6 +277,15 @@
               ></span>
             </a>
             <a
+              href="#experience"
+              class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
+            >
+              <span class="relative z-10">Experience</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+            <a
               href="#projects"
               class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
             >
@@ -277,37 +294,39 @@
                 class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
               ></span>
             </a>
-
-            <a
-              href="#contact"
-              class="nav-link text-gray-300 hover:text-primary-400 transition font-medium text-lg relative group"
-            >
-              <span class="relative z-10">Contact</span>
-              <span
-                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"
-              ></span>
-            </a>
           </div>
 
-          <div class="md:hidden flex items-center">
-            <button
-              id="mobile-menu-button"
-              class="text-gray-300 hover:text-primary-400 p-2 rounded-lg glass-card"
+          <!-- Right: Contact Button & Mobile Menu -->
+          <div class="flex items-center gap-4 relative z-10">
+            <!-- Contact Button (Desktop) -->
+            <a
+              href="#contact"
+              class="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white rounded-full font-medium transition-all duration-300 shadow-[0_0_15px_rgba(14,165,233,0.3)] hover:shadow-[0_0_25px_rgba(14,165,233,0.5)] hover:-translate-y-0.5"
             >
-              <svg
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              Contact Me
+            </a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <div class="md:hidden flex items-center">
+              <button
+                id="mobile-menu-button"
+                class="text-gray-300 hover:text-primary-400 p-2 rounded-lg glass-card"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
-            </button>
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -328,24 +347,19 @@
             >About</a
           >
           <a
+            href="#experience"
+            class="nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
+            >Experience</a
+          >
+          <a
             href="#projects"
             class="nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
             >Projects</a
           >
           <a
-            href="#tech-stack"
-            class="nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
-            >Tech Stack</a
-          >
-          <a
             href="#contact"
             class="nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
             >Contact</a
-          >
-          <a
-            href="#certifications"
-            class="nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-white/5 transition"
-            >Certifications</a
           >
         </div>
       </div>
@@ -435,7 +449,8 @@
               href="#contact"
               class="bg-white hover:bg-gray-100 text-black px-8 py-3.5 rounded-full font-bold transition hover-lift text-center shadow-[0_0_20px_rgba(255,255,255,0.2)]"
             >
-              <i class="fas fa-paper-plane"></i> &nbsp; <span>Contact Me</span>
+              <i class="fas fa-paper-plane"></i> &nbsp;
+              <span>Get in Touch</span>
             </a>
             <button
               id="download-resume"
