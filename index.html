@@ -100,29 +100,15 @@
         background-size: 40px 40px;
       }
       .nav-link-active-desktop {
-        color: #38bdf8; /* text-primary-400 */
+        color: #38bdf8;
       }
 
       .nav-link-active-mobile {
-        color: #38bdf8; /* text-primary-400 */
-        background-color: rgba(14, 165, 233, 0.1); /* primary-500/10 */
-      }
-      @keyframes gradientShift {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 10px;
+        color: #38bdf8;
+        background-color: rgba(14, 165, 233, 0.1);
       }
 
+      /* Custom scrollbar */
       ::-webkit-scrollbar-track {
         background: #1a1a1a;
       }
@@ -142,6 +128,148 @@
         background: linear-gradient(90deg, #0ea5e9, #3b82f6, #8b5cf6);
         z-index: 9999;
         transition: width 0.3s ease;
+      }
+
+      /* =============================================
+         HERO SECTION — MOBILE RESPONSIVE FIXES
+         ============================================= */
+
+      /* Hero name text: scale down fluidly on small screens */
+      .hero-name {
+        font-size: clamp(2.2rem, 10vw, 11vw);
+        line-height: 1;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+        color: white;
+        text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+      }
+
+      /* "SOFTWARE / DEVELOPER" subtitle fluid scaling */
+      .hero-subtitle-word {
+        font-size: clamp(1rem, 4.5vw, 4vw);
+        font-weight: 300;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+
+      /* Hero headings block: position adapts to screen height */
+      .hero-headings-block {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+        /* Desktop: centered higher */
+        top: 35%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* On mobile: push headings up more so they sit above the image */
+      @media (max-width: 767px) {
+        .hero-headings-block {
+          top: 18%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      /* Hero image container: full-width fluid height on mobile */
+      .hero-image-container {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 56rem; /* 4xl = 896px */
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      /* Desktop: tall image */
+      @media (min-width: 1024px) {
+        .hero-image-container {
+          height: 80vh;
+        }
+      }
+
+      /* Tablet */
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .hero-image-container {
+          height: 65vh;
+        }
+      }
+
+      /* Mobile: shorter so text above is visible */
+      @media (max-width: 767px) {
+        .hero-image-container {
+          height: 52vh;
+        }
+      }
+
+      /* Extra small mobile (e.g. iPhone SE) */
+      @media (max-width: 390px) {
+        .hero-image-container {
+          height: 46vh;
+        }
+        .hero-name {
+          font-size: clamp(1.8rem, 9.5vw, 10vw);
+        }
+      }
+
+      /* Hero bottom content block: ensure it sits above the image naturally */
+      .hero-bottom-content {
+        position: relative;
+        z-index: 20;
+        pointer-events: auto;
+        padding-bottom: 2rem;
+      }
+
+      /* On mobile: the content box should have a tighter top margin
+         so it doesn't overlap the image awkwardly */
+      @media (max-width: 767px) {
+        .hero-bottom-content {
+          padding-bottom: 1rem;
+        }
+        /* Make the glass pill and CTA buttons full-readable on small screens */
+        .hero-inner-card {
+          background: rgba(0, 0, 0, 0.45);
+          backdrop-filter: blur(12px);
+          border-radius: 1rem;
+          padding: 1rem;
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      /* Carousel items: reduce gap on very small screens */
+      @media (max-width: 480px) {
+        .carousel-item-text {
+          display: none !important;
+        }
+      }
+
+      /* Ensure hero section fills the viewport correctly */
+      #home {
+        min-height: 100svh; /* use svh for modern mobile (no URL-bar jump) */
+      }
+
+      /* Modal hide-scrollbar */
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
       }
     </style>
     <script>
@@ -365,37 +493,33 @@
       </div>
     </nav>
 
+    <!-- =============================================
+         HERO SECTION — REBUILT FOR MOBILE FIRST
+         ============================================= -->
     <section
       id="home"
-      class="min-h-screen relative pt-24 pb-0 flex flex-col justify-end overflow-hidden"
+      class="relative pt-20 pb-0 flex flex-col justify-end overflow-hidden"
+      style="min-height: 100svh"
     >
-      <div
-        class="absolute inset-x-0 top-[22%] lg:top-[35%] -translate-y-1/2 flex flex-col items-center justify-center z-0 pointer-events-none select-none w-full px-4"
-      >
-        <h1
-          class="text-[10vw] lg:text-[11vw] font-black text-white tracking-tighter uppercase whitespace-nowrap leading-none drop-shadow-2xl"
-        >
-          GERALD &nbsp;CATINA
-        </h1>
-        <div
-          class="flex justify-between w-full max-w-[90%] lg:max-w-4xl opacity-80"
-        >
+      <!-- Big name + subtitle — absolutely centered, fluid text size -->
+      <div class="hero-headings-block">
+        <h1 class="hero-name text-center">GERALD &nbsp;CATINA</h1>
+        <div class="flex justify-between w-full max-w-[70%] lg:max-w-5xl mt-1">
           <span
-            class="text-[4.5vw] lg:text-[4vw] font-light tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white uppercase"
+            class="hero-subtitle-word text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white"
           >
             SOFTWARE
           </span>
           <span
-            class="text-[4.5vw] lg:text-[4vw] font-light tracking-widest text-transparent bg-clip-text bg-gradient-to-l from-gray-400 to-white uppercase"
+            class="hero-subtitle-word text-transparent bg-clip-text bg-gradient-to-l from-gray-400 to-white"
           >
             DEVELOPER
           </span>
         </div>
       </div>
 
-      <div
-        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[45vh] lg:h-[80vh] flex justify-center items-end z-10 pointer-events-none animate-fade-in"
-      >
+      <!-- Hero image — fluid, pinned to bottom -->
+      <div class="hero-image-container">
         <div
           class="absolute inset-0 bg-primary-500/20 blur-[120px] rounded-full w-2/3 mx-auto h-2/3 bottom-0"
         ></div>
@@ -414,56 +538,58 @@
         />
       </div>
 
+      <!-- Bottom content: status pill + description + CTA buttons -->
       <div
-        class="max-w-7xl mx-auto w-full px-6 relative z-20 pointer-events-auto flex-1 flex flex-col justify-end pb-8"
+        class="max-w-7xl mx-auto w-full px-4 sm:px-6 relative z-20 flex-1 flex flex-col justify-end"
       >
-        <div
-          class="max-w-md bg-black/20 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none p-4 lg:p-0 rounded-2xl mb-4 lg:mb-4"
-        >
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-lg mb-3 lg:mb-4 animate-slide-up shadow-xl"
-          >
-            <span
-              class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse-glow shadow-[0_0_8px_#22c55e]"
-            ></span>
-            <span class="text-sm font-medium text-gray-300 tracking-wide"
-              >Open for freelance works.</span
+        <div class="hero-bottom-content">
+          <div class="hero-inner-card max-w-md">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-lg mb-3 lg:mb-4 animate-slide-up shadow-xl"
             >
-          </div>
-          <p
-            class="text-base lg:text-xl text-gray-300 font-light leading-relaxed mb-4 lg:mb-8 animate-slide-up"
-            style="animation-delay: 0.1s"
-          >
-            Hey there! I'm Gerald. A passionate developer focused on building
-            modern solutions in the global marketplace.
-            <span class="block mt-2 font-medium text-primary-400">
-              <span id="typing-text"></span>
-            </span>
-          </p>
+              <span
+                class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse-glow shadow-[0_0_8px_#22c55e]"
+              ></span>
+              <span class="text-sm font-medium text-gray-300 tracking-wide"
+                >Open for freelance works.</span
+              >
+            </div>
+            <p
+              class="text-sm sm:text-base lg:text-xl text-gray-300 font-light leading-relaxed mb-4 lg:mb-8 animate-slide-up"
+              style="animation-delay: 0.1s"
+            >
+              Hey there! I'm Gerald. A passionate developer focused on building
+              modern solutions in the global marketplace.
+              <span class="block mt-2 font-medium text-primary-400">
+                <span id="typing-text"></span>
+              </span>
+            </p>
 
-          <div
-            class="flex flex-col sm:flex-row gap-3 lg:gap-4 animate-slide-up"
-            style="animation-delay: 0.2s"
-          >
-            <a
-              href="#contact"
-              class="bg-white hover:bg-gray-100 text-black px-8 py-3.5 rounded-full font-bold transition hover-lift text-center shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+            <div
+              class="flex flex-col sm:flex-row gap-3 lg:gap-4 animate-slide-up"
+              style="animation-delay: 0.2s"
             >
-              <i class="fas fa-paper-plane"></i> &nbsp;
-              <span>Get in Touch</span>
-            </a>
-            <button
-              id="download-resume"
-              class="border border-white/20 hover:bg-white/10 text-white px-8 py-3.5 rounded-full font-semibold transition hover-lift glass-card flex items-center justify-center gap-2"
-            >
-              <i class="fas fa-download"></i> <span>View Resume</span>
-            </button>
+              <a
+                href="#contact"
+                class="bg-white hover:bg-gray-100 text-black px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold transition hover-lift text-center shadow-[0_0_20px_rgba(255,255,255,0.2)] text-sm sm:text-base"
+              >
+                <i class="fas fa-paper-plane"></i> &nbsp;
+                <span>Get in Touch</span>
+              </a>
+              <button
+                id="download-resume"
+                class="border border-white/20 hover:bg-white/10 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-semibold transition hover-lift glass-card flex items-center justify-center gap-2 text-sm sm:text-base"
+              >
+                <i class="fas fa-download"></i> <span>View Resume</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- Tech stack carousel -->
       <div
-        class="w-full relative z-30 bg-gradient-to-b from-transparent via-[#020617]/40 to-[#020617]/80 pt-12 pb-6 overflow-hidden"
+        class="w-full relative z-30 bg-gradient-to-b from-transparent via-[#020617]/40 to-[#020617]/80 pt-8 sm:pt-12 pb-6 overflow-hidden mt-4"
       >
         <div
           class="absolute inset-y-0 left-0 w-8 sm:w-16 lg:w-32 bg-gradient-to-r from-[#020617] to-transparent z-10 pointer-events-none"
@@ -475,14 +601,15 @@
         <div
           class="w-[200%] flex animate-carousel hover:[animation-play-state:paused]"
         >
+          <!-- First set -->
           <div
-            class="w-1/2 flex items-center justify-around gap-4 lg:gap-0 px-2 lg:px-0"
+            class="w-1/2 flex items-center justify-around gap-3 sm:gap-4 lg:gap-0 px-2 lg:px-0"
           >
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-white transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-white transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >Java</span
               >
               <img
@@ -500,11 +627,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-purple-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-purple-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >C#</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -514,11 +640,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-orange-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-orange-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >TensorFlow</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -528,11 +653,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-yellow-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-yellow-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >JavaScript</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -542,11 +666,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-blue-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-blue-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >React</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -556,11 +679,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-teal-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-teal-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >Tailwind</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -570,11 +692,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-blue-500 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-blue-500 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >Python</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -584,7 +705,7 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-green-500 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-green-500 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >QGIS</span
               >
             </div>
@@ -597,14 +718,14 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-green-500 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-green-500 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >Machine Learning</span
               >
             </div>
           </div>
-
+          <!-- Duplicate set for seamless loop -->
           <div
-            class="w-1/2 flex items-center justify-around gap-4 lg:gap-0 px-2 lg:px-0"
+            class="w-1/2 flex items-center justify-around gap-3 sm:gap-4 lg:gap-0 px-2 lg:px-0"
           >
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
@@ -615,11 +736,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-white transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-white transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >Java</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -629,11 +749,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-purple-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-purple-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >C#</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -643,11 +762,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-orange-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-orange-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >TensorFlow</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -657,11 +775,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-yellow-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-yellow-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >JavaScript</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -671,11 +788,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-blue-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-blue-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >React</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -685,11 +801,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-teal-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-teal-400 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >Tailwind</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -699,11 +814,10 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-blue-500 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-blue-500 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >Python</span
               >
             </div>
-
             <div
               class="flex items-center gap-2 lg:gap-3 group/tech cursor-default"
             >
@@ -713,7 +827,7 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-green-500 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-green-500 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >QGIS</span
               >
             </div>
@@ -726,7 +840,7 @@
                 class="h-6 lg:h-9 opacity-50 group-hover/tech:opacity-100 grayscale group-hover/tech:grayscale-0 transition-all duration-300"
               />
               <span
-                class="font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-green-500 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm hidden sm:inline"
+                class="carousel-item-text font-bold text-gray-400 opacity-50 group-hover/tech:opacity-100 group-hover/tech:text-green-500 transition-all duration-300 uppercase tracking-widest text-xs lg:text-sm"
                 >MACHINE LEARNING</span
               >
             </div>
@@ -994,7 +1108,6 @@
               class="absolute left-6 md:left-1/2 w-5 h-5 rounded-full border-4 border-[#0a0a0a] bg-blue-500 md:-translate-x-1/2 mt-7 md:mt-0 z-10 group-hover:scale-125 group-hover:shadow-[0_0_20px_#3b82f6] transition-all duration-300"
             ></div>
 
-            <!-- Desktop Layout: Content on Left, Date on Right -->
             <div
               class="w-full md:w-5/12 pl-20 md:pl-0 md:pr-12 md:text-right order-last md:order-first"
             >
@@ -1531,8 +1644,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Project Card 6: MWAVE -->
         </div>
 
         <div class="text-center mt-16 animate-fade-in">
@@ -1548,7 +1659,6 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-24 relative">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-20">
@@ -1568,7 +1678,6 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <!-- Contact Info -->
           <div class="space-y-8 animate-slide-right">
             <div class="glass-card p-8 rounded-3xl border border-white/10">
               <h3 class="text-2xl font-bold text-white mb-6">
@@ -1656,7 +1765,6 @@
             </div>
           </div>
 
-          <!-- Contact Form -->
           <div
             class="glass-card p-8 rounded-3xl border border-white/10 animate-slide-up"
           >
@@ -1733,29 +1841,23 @@
       </div>
     </section>
 
-    <!-- Case Study Modal (Hidden by default) -->
     <div
       id="case-study-modal"
       class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
     >
-      <!-- Backdrop -->
       <div
         class="absolute inset-0 bg-black/90 backdrop-blur-md"
         onclick="closeModal()"
       ></div>
 
-      <!-- Modal Content (flex-col and overflow-hidden let the header stick to top while body scrolls) -->
       <div
         class="relative bg-dark-900 border border-white/10 rounded-3xl w-full max-w-5xl max-h-[90vh] flex flex-col shadow-2xl glass-card transform scale-95 transition-transform duration-300 overflow-hidden"
         id="modal-box"
       >
-        <!-- Added flex-1, min-h-0, and overflow-hidden to properly bound the height -->
         <div
           id="modal-body"
           class="w-full flex-1 flex flex-col min-h-0 overflow-hidden"
-        >
-          <!-- Dynamic content will be injected here by JavaScript -->
-        </div>
+        ></div>
       </div>
     </div>
 
@@ -1812,7 +1914,6 @@
       </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button
       id="back-to-top"
       class="fixed bottom-8 right-8 bg-gradient-to-br from-primary-600 to-primary-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center opacity-0 invisible transition-all duration-300 hover-lift z-40"
@@ -1820,10 +1921,7 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- JavaScript -->
     <script>
-      // Page loading animation
-
       const sections = document.querySelectorAll("section[id]");
       const navLinks = document.querySelectorAll('a.nav-link[href^="#"]');
 
@@ -1832,7 +1930,7 @@
 
         sections.forEach((section) => {
           const rect = section.getBoundingClientRect();
-          const offset = 150; // adjust "trigger" height from top
+          const offset = 150;
 
           if (rect.top <= offset && rect.bottom > offset) {
             currentSectionId = section.id;
@@ -1843,7 +1941,6 @@
           const href = link.getAttribute("href");
           const isActive = href === `#${currentSectionId}`;
 
-          // reset common classes
           link.classList.remove(
             "text-primary-400",
             "bg-primary-500/10",
@@ -1851,19 +1948,14 @@
             "nav-link-active-mobile"
           );
 
-          // base/inactive color classes
           if (link.closest(".md\\:hidden")) {
-            // mobile menu link
             link.classList.add("text-gray-300");
           } else {
-            // desktop link
             link.classList.add("text-gray-300");
           }
 
-          // apply active state
           if (isActive) {
             if (link.closest(".md\\:hidden")) {
-              // mobile
               link.classList.remove("text-gray-300");
               link.classList.add(
                 "text-primary-400",
@@ -1871,7 +1963,6 @@
                 "nav-link-active-mobile"
               );
             } else {
-              // desktop
               link.classList.remove("text-gray-300");
               link.classList.add("text-primary-400", "nav-link-active-desktop");
             }
@@ -1880,7 +1971,6 @@
       }
 
       window.addEventListener("scroll", setActiveNavLink);
-      // run once on load
       window.addEventListener("load", setActiveNavLink);
       window.addEventListener("load", function () {
         const loadingBar = document.querySelector(".loading-bar");
@@ -1893,7 +1983,6 @@
           }, 300);
         }, 500);
 
-        // Animate elements on load
         document.querySelectorAll(".animate-on-load").forEach((el, index) => {
           setTimeout(() => {
             el.classList.add("animated");
@@ -1901,7 +1990,6 @@
         });
       });
 
-      // Update loading bar on scroll
       window.addEventListener("scroll", function () {
         const winScroll =
           document.body.scrollTop || document.documentElement.scrollTop;
@@ -1912,7 +2000,6 @@
         document.querySelector(".loading-bar").style.width = scrolled + "%";
       });
 
-      // Custom typing animation
       document.addEventListener("DOMContentLoaded", function () {
         const texts = ["Web Developer", "Deep Learning Engineer"];
         const typingElement = document.getElementById("typing-text");
@@ -1924,20 +2011,17 @@
           const currentText = texts[textIndex];
 
           if (!isDeleting) {
-            // Typing
             if (charIndex < currentText.length) {
               typingElement.textContent += currentText.charAt(charIndex);
               charIndex++;
               setTimeout(typeWriter, 100);
             } else {
-              // Finished typing, wait then start deleting
               setTimeout(() => {
                 isDeleting = true;
                 typeWriter();
               }, 2000);
             }
           } else {
-            // Deleting
             if (charIndex > 0) {
               typingElement.textContent = currentText.substring(
                 0,
@@ -1946,7 +2030,6 @@
               charIndex--;
               setTimeout(typeWriter, 50);
             } else {
-              // Finished deleting, move to next text
               isDeleting = false;
               textIndex = (textIndex + 1) % texts.length;
               setTimeout(typeWriter, 200);
@@ -1954,27 +2037,24 @@
           }
         }
 
-        // Start the typing animation after a short delay
         setTimeout(() => {
           typeWriter();
         }, 500);
 
-        // Add cursor blink animation
         const style = document.createElement("style");
         style.textContent = `
           #typing-text {
-        border-right: 2px solid #0ea5e9;
-        animation: blink-caret 1s step-end infinite;
+            border-right: 2px solid #0ea5e9;
+            animation: blink-caret 1s step-end infinite;
           }
           @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: #0ea5e9; }
+            from, to { border-color: transparent }
+            50% { border-color: #0ea5e9; }
           }
         `;
         document.head.appendChild(style);
       });
 
-      // Mobile menu toggle
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
 
@@ -1983,7 +2063,6 @@
         mobileMenu.classList.toggle("animate-slide-up");
       });
 
-      // Close mobile menu when clicking outside
       document.addEventListener("click", (event) => {
         if (
           !mobileMenu.contains(event.target) &&
@@ -1993,7 +2072,6 @@
         }
       });
 
-      // Smooth scrolling for navigation links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
@@ -2010,7 +2088,6 @@
               behavior: "smooth",
             });
 
-            // Close mobile menu if open
             if (!mobileMenu.classList.contains("hidden")) {
               mobileMenu.classList.add("hidden");
             }
@@ -2018,7 +2095,6 @@
         });
       });
 
-      // Navbar background on scroll
       const navbar = document.getElementById("navbar");
       window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
@@ -2029,7 +2105,6 @@
         }
       });
 
-      // Back to top button
       const backToTopButton = document.getElementById("back-to-top");
 
       window.addEventListener("scroll", () => {
@@ -2049,29 +2124,24 @@
         });
       });
 
-      // Download resume button
       const downloadResumeButton = document.getElementById("download-resume");
 
       downloadResumeButton.addEventListener("click", () => {
         window.open("imgs/resume/CatinaGerald_Resume.pdf", "_blank");
       });
 
-      // Contact form submission
       const contactForm = document.getElementById("contact-form");
 
       contactForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        // Get form values
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const subject = document.getElementById("subject").value;
         const message = document.getElementById("message").value;
 
-        // Here you would typically send the form data to a server
         console.log({ name, email, subject, message });
 
-        // Show success message with animation
         const button = contactForm.querySelector("button");
         const originalText = button.innerHTML;
         button.innerHTML = '<i class="fas fa-check mr-2"></i> Message Sent!';
@@ -2084,7 +2154,6 @@
           button.classList.add("from-primary-600", "to-primary-700");
         }, 3000);
 
-        // Reset form
         contactForm.reset();
       });
 
@@ -2165,26 +2234,20 @@
         const data = caseStudies[projectId];
         if (!data) return;
 
-        // Construct Content with Edge-to-Edge Header & Scrollable Body
         modalBody.innerHTML = `
-          <!-- Fixed Image Header -->
           <div class="relative w-full h-56 sm:h-80 flex-shrink-0">
             <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover">
-            <!-- Fade overlay to blending into the dark background below -->
             <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
             
-            <!-- Close Button (Always visible on top right) -->
             <button onclick="closeModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 bg-black/50 hover:bg-primary-500 rounded-full flex items-center justify-center text-white transition-all duration-300 backdrop-blur-md border border-white/10 hover-lift z-10">
               <i class="fas fa-times"></i>
             </button>
 
-            <!-- Project Title -->
             <h2 class="absolute bottom-6 left-6 sm:left-10 text-3xl sm:text-5xl font-extrabold text-white drop-shadow-2xl z-10">
               ${data.title}
             </h2>
           </div>
           
-          <!-- Scrollable Text Area -->
           <div class="flex-1 overflow-y-auto p-6 sm:p-10 hide-scrollbar bg-dark-900/50">
             <div class="mb-8">
               <span class="inline-flex items-center px-4 py-1.5 rounded-full border border-primary-500/30 bg-primary-500/10 text-primary-400 font-bold uppercase tracking-widest text-xs sm:text-sm">
@@ -2194,7 +2257,6 @@
 
             <div class="space-y-10 text-gray-300">
               
-              <!-- Problem Block -->
               <div class="group">
                 <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
                   <span class="w-10 h-10 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center mr-4 border border-red-500/20 group-hover:bg-red-500/20 transition-colors"><i class="fas fa-exclamation-circle text-lg"></i></span>
@@ -2203,7 +2265,6 @@
                 <p class="leading-relaxed font-light text-lg pl-14 sm:pl-14 text-gray-400">${data.problem}</p>
               </div>
               
-              <!-- Solution Block -->
               <div class="group">
                 <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
                   <span class="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center mr-4 border border-yellow-500/20 group-hover:bg-yellow-500/20 transition-colors"><i class="fas fa-lightbulb text-lg"></i></span>
@@ -2212,7 +2273,6 @@
                 <p class="leading-relaxed font-light text-lg pl-14 sm:pl-14 text-gray-400">${data.solution}</p>
               </div>
 
-              <!-- Impact Block -->
               <div class="group relative bg-gradient-to-r from-green-500/10 to-transparent border border-green-500/20 rounded-2xl p-6 sm:p-8 overflow-hidden hover:border-green-500/40 transition-colors">
                 <h3 class="text-2xl font-bold text-white mb-4 flex items-center relative z-10">
                   <span class="w-10 h-10 rounded-xl bg-green-500/20 text-green-400 flex items-center justify-center mr-4 shadow-[0_0_15px_rgba(74,222,128,0.3)]"><i class="fas fa-chart-line text-lg"></i></span>
@@ -2228,11 +2288,9 @@
           </div>
         `;
 
-        // IMPORTANT: Swap out "hidden" for "flex" so it stays perfectly centered
         modal.classList.remove("hidden");
         modal.classList.add("flex");
 
-        // Ensure absolutely no scrolling on the background
         document.body.style.overflow = "hidden";
         document.documentElement.style.overflow = "hidden";
 
@@ -2249,17 +2307,14 @@
         modalBox.classList.add("scale-95");
 
         setTimeout(() => {
-          // Revert back fully
           modal.classList.remove("flex");
           modal.classList.add("hidden");
 
-          // Re-enable scrolling everywhere
           document.body.style.overflow = "";
           document.documentElement.style.overflow = "";
         }, 300);
       }
 
-      // Animate skill bars on scroll
       function animateSkillBars() {
         document.querySelectorAll(".skill-item").forEach((item) => {
           const bar = item.querySelector(".skill-bar");
@@ -2272,7 +2327,6 @@
         });
       }
 
-      // Intersection Observer for scroll animations
       const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px",
@@ -2289,12 +2343,10 @@
         });
       }, observerOptions);
 
-      // Observe all sections
       document.querySelectorAll("section").forEach((section) => {
         observer.observe(section);
       });
 
-      // 3D card effect on hero card
       const heroCard = document.getElementById("hero-card");
       if (heroCard) {
         heroCard.addEventListener("mousemove", (e) => {
@@ -2318,7 +2370,6 @@
         });
       }
 
-      // Parallax effect for background elements
       window.addEventListener("scroll", () => {
         const scrolled = window.pageYOffset;
         const parallaxElements = document.querySelectorAll(".parallax");
